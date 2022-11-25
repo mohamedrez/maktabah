@@ -1,0 +1,19 @@
+---
+engine_version: 0.2.82
+file_version: 2022-11-25 09:46:48.789235000 Z
+resources: []
+configs:
+- key: header.links
+  value: []
+  updated_at: 2022-11-25 09:46:48.789235000 +00:00
+queries: []
+dashboards: []
+forms: []
+alerts: []
+api_configs:
+- id: 1
+  name: origin
+  url: "/"
+  preferences: {}
+  description:
+  updated_at: 2022-11-24 21:32:16.869868000 +00:00
