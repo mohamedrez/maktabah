@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_133218) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_25_164339) do
   create_table "action_text_rich_texts", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -55,6 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_133218) do
     t.bigint "scholar_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
+    t.bigint "track_id"
     t.index ["scholar_id"], name: "index_courses_on_scholar_id"
   end
 
@@ -226,6 +228,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_133218) do
     t.index ["stepable_type", "stepable_id"], name: "index_steps_on_stepable"
   end
 
+  create_table "tracks", charset: "utf8", force: :cascade do |t|
+    t.bigint "scholar_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "telegram_link"
+    t.integer "level"
+    t.string "name"
+    t.index ["scholar_id"], name: "index_tracks_on_scholar_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -245,4 +258,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_133218) do
   add_foreign_key "motor_alerts", "motor_queries", column: "query_id"
   add_foreign_key "motor_taggable_tags", "motor_tags", column: "tag_id"
   add_foreign_key "steps", "courses"
+  add_foreign_key "tracks", "scholars"
 end
