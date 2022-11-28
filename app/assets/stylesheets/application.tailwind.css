@@ -2,3 +2,160 @@
 @tailwind components;
 @tailwind utilities;
 @import 'actiontext.css';
+
+body{
+  font-family: 'Amiri', sans-serif;
+}
+body {
+  color: #e5e5e5;
+  background: #162c35;
+  text-shadow: 1px 1px 1px #000;
+  font-size: 22px;
+}
+/*
+.card {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+  position: relative;
+  padding: 72px 15px 20px;
+  transition: transform 50ms 0s ease;
+  -webkit-animation: card-fade-up 0.5s ease;
+  -moz-animation: card-fade-up 0.5s ease;
+  animation: card-fade-up 0.5s ease;
+}
+
+
+
+.card-stages li {
+  background-color: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 100px;
+  text-indent: -100px;
+  display: block;
+  float: left;
+  height: 10px;
+  margin: 0 7px 0 0 !important;
+  width: 10px;
+}
+
+svg {
+  overflow: visible !important;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: fill 300ms 0s ease, stroke 300ms 0s ease, transform 300ms 0s ease, opacity 300ms 0s ease;
+}
+
+.card-stages {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  height: 10px;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 30%);
+  mask-image: linear-gradient(to left, transparent 0%, black 30%);
+}
+
+.card-stages .track {
+  background-color: transparent;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 100px;
+  text-indent: -100px;
+  display: block;
+  height: 10px;
+  margin: 0 7px 0 0 !important;
+  width: 10px;
+}
+
+.card-estimate {
+  margin-left: auto;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.card-progress {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  justify-items: center;
+  height: 58px;
+  line-height: 58px;
+  padding: 0 30px;
+  background-color: #55616c;
+  transition: background-color 300ms 0s ease;
+}
+
+.card-icon {
+  fill: #fff;
+  height: 18px;
+  width: 18px;
+  margin-right: 15px;
+}
+
+.card-type {
+  display: block;
+  margin: 0 0 7px;
+  line-height: 12px;
+  color: #5dca7d;
+}
+
+.card-title {
+  line-height: 24px;
+  letter-spacing: normal;
+  margin: 0 0 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-description, .card-description-markdown {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  font-weight: 400;
+}
+
+.card:not(.variable-height) .card-description, .card:not(.variable-height) .card-description-markdown {
+  max-height: 40px;
+}
+
+.card-box:not(.has-topic-background-color) {
+  background: #fff;
+}
+
+.card-actions {
+  pointer-events: none;
+  list-style: none;
+  display: block;
+  position: absolute;
+  left: 45px;
+  right: 45px;
+  bottom: 30px;
+  z-index: 1;
+}
+
+.card-action.resume, .card-action.secondary-action {
+  float: left;
+}
+
+.card-action {
+  position: relative;
+  float: left;
+  pointer-events: auto;
+}
+
+.card-action.resume .button, .card-action.secondary-action .button {
+  height: 36px;
+  padding: 0 22px;
+  line-height: 32px;
+} */

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_25_164339) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_121421) do
   create_table "action_text_rich_texts", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -236,6 +236,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_25_164339) do
     t.text "telegram_link"
     t.integer "level"
     t.string "name"
+    t.integer "duration"
     t.index ["scholar_id"], name: "index_tracks_on_scholar_id"
   end
 

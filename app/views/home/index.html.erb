@@ -1,0 +1,37 @@
+<div class="grid md:grid-cols-2 sm:grid-col-1 gap-4 track">
+  <% @tracks.each do |track| %>
+  <div class="shadow">
+    <div class="card track topic-front-end premium-video">
+      <div class="card-box card-link" href="<%= track_path(track) %>">
+        <div class="card-progress">
+          <div>
+            <img class="h-8 w-8 rounded-full" src="<%= track.scholar.image.path %>" alt="">
+          </div>
+          <ul class="card-stages">
+
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <span class="card-estimate">
+            <%= track.duration / 60 %> ساعة
+          </span>
+        </div>
+        <p class="card-type">مستوى
+          <span class="track-due-date"></span>
+        </p>
+        <h3 itemprop="name" class="card-title"><%= track.name %></h3>
+        <p itemprop="description" class="card-description">
+          <%= track.content %>
+        </p>
+        <p>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            إكمال
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+   <% end %>
+</div>
+
