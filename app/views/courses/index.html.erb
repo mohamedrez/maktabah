@@ -1,0 +1,5 @@
+<h1><%= @track.name %></h1>
+<% @courses.each do |course| %>
+  <h2><%= course.name %></h2>
+  <p><%= course.description %></p>
+<% end %>
