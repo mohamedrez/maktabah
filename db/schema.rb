@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_121859) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_120039) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -58,6 +58,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_121859) do
     t.index ["track_id"], name: "index_courses_on_track_id"
   end
 
+  create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "youtube_video_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quizzes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "steps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "course_id", null: false
+    t.integer "position"
+    t.string "stepable_type", null: false
+    t.bigint "stepable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["course_id"], name: "index_steps_on_course_id"
+    t.index ["stepable_type", "stepable_id"], name: "index_steps_on_stepable"
+  end
+
   create_table "tracks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "position"
@@ -68,4 +91,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_121859) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "courses", "tracks"
+  add_foreign_key "steps", "courses"
 end
