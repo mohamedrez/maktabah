@@ -1,0 +1,8 @@
+<h1>User Name: <%= @profile.username %></h1>
+<h3>Whoami?</h3>
+<p><%= @profile.bio %></p>
+<div>
+    <% @profile.courses.each do |course| %>
+        <p><strong><%= link_to course.name, course_steps_path(course_id: course.id)  %></strong></p>
+    <% end %>
+</div>
