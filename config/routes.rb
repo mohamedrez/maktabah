@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :tracks, only: [:show]
   resources :profiles, only: [:show]
   resources :courses do
-    resources :steps, only: [:index]
+    resources :steps, only: [:index, :show]
   end
 end
