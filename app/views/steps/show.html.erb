@@ -1,1 +1,8 @@
-<p><strong>step.name</strong></p>
+<p><strong><%= @step.name %></strong></p>
+<% if @step.stepable_type == "Lecture" %>
+    <p><strong><a href=<%= Lecture.find(@step.stepable_id).youtube_video_link %>>The Video Link</a></strong></p>
+<% else %>
+    <% Quiz.find(@step.stepable_id).questions.each do |question| %>
+        <p><strong><%= question.ask %></strong></p>
+    <% end %>
+<% end %>
