@@ -1,5 +1,5 @@
-<h1><%= @track.name %></h1>
+<h1 class="text-3xl font-bold underline" ><%= @track.name %></h1>
 <% @courses.each do |course| %>
-  <h2><%= link_to course.name, course_steps_path(course_id: course.id)  %></h2>
+  <h2 class="text-xl text-sky-400/100" ><%= link_to course.name, course_steps_path(course_id: course.id)  %></h2>
   <p><%= course.description %></p>
 <% end %>
