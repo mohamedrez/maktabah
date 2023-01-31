@@ -6,13 +6,14 @@ class ProfilesController < ApplicationController
     end
 
     def edit
+        @type = params[:type]
         @track_courses = Add_courses(@profile)
     end
 
     def update
         ids = params[:courses_ids]
         ids.each do |id|
-            @profile.courses << Course.find(id)
+            params[:type] == "a" ? @profile.courses << Course.find(id) : @profile.courses.delete(Course.find(id))
         end
         redirect_to profile_path(@profile.id)
     end
@@ -22,7 +23,7 @@ class ProfilesController < ApplicationController
         track_courses = []
         tracks.each do |track|
             list_courses = []
-            track.courses do |course|
+            track.courses.each do |course|
                 # if course exist in profile.courses not print
                 not_exist = true
                 profile.courses.each do |pc|
@@ -42,7 +43,7 @@ class ProfilesController < ApplicationController
 
     private
         def profile_params  
-            params.require(:profile).permit(:username, :bio, courses_ids[]) 
+            params.require(:profile).permit(:username, :bio) 
         end
 
         def set_page 

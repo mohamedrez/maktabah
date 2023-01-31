@@ -8,4 +8,5 @@
 </div>
 
 <!--<%= link_to 'Edit Courses', edit_profile_path(id: @profile.id) %>-->
-<%= button_to "Add Courses", edit_profile_path(id: @profile.id), method: :get %>
+<%= button_to "Add Courses To Your List", edit_profile_path, params: {id: @profile.id, type: "a"}, method: :get %>
+<%= button_to "Remove Courses From Your List", edit_profile_path, params: {id: @profile.id, type: "r"}, method: :get %>

@@ -1,15 +1,24 @@
 <h1>Edit: <%= @profile.username%>'s Courses</h1>
 
-<form method="post" action = <%= update_profile_path(@profile.id)%>>
-    <input type="hidden" name="_method" value="patch"> 
-        <% @track_courses.each do |tc|%>
-            <h2><%= tc[:name] %></h2><hr>
-            <%= tc[:courses].each do |course| %>
+<form method="post" action = <%= update_profile_path(id: @profile.id, type: @type)%>>
+    <input type="hidden" name="_method" value="patch">
+        <% if @type == "a" %> 
+            <% @track_courses.each do |tc|%>
+                <h2><%= tc[:track_name] %></h2><hr>
+                <%= tc[:courses].each do |course| %>
+                    <div>
+                        <%= check_box_tag "courses_ids[]", course.id %>
+                        <%= label_tag "courses_ids_", course.name %><br>
+                    </div>
+                <% end %>
+            <% end %>
+        <% elsif @type == "r" %>
+            <% @profile.courses.each do |course| %>
                 <div>
                     <%= check_box_tag "courses_ids[]", course.id %>
                     <%= label_tag "courses_ids_", course.name %><br>
                 </div>
-            <% end%>
-        <% end%>
+            <% end %>
+        <% end %> 
     <input type="submit">
 </form>
