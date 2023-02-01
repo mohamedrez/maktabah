@@ -1,8 +1,6 @@
 FactoryBot.define do
-  factory :course do
+  factory :track do
     name { "MyString" }
     position { 1 }
-    description { nil }
-    track { nil }
   end
 end

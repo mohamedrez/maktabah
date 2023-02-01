@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
   resources :courses do
     resources :steps, only: [:index, :show]
   end
+
+  resources :user_progresses, only: [:create, :update]
 end
