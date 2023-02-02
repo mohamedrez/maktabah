@@ -51,6 +51,6 @@ jobs:
         run: |
           bundle install
           yarn install
-          DB_USER=test_maktabah_test_user DB_PASSWORD=password bundle exec rake db:create
-          DB_USER=test_maktabah_test_user DB_PASSWORD=password bundle exec rspec
+          DB_SOCKET= DB_USER=test_maktabah_test_user DB_PASSWORD=password bundle exec rake db:create
+          DB_SOCKET= DB_USER=test_maktabah_test_user DB_PASSWORD=password bundle exec rspec
 
