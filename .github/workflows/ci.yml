@@ -51,7 +51,7 @@ jobs:
           DB_PASSWORD: password
           DB_SOCKET: ''
           RAILS_ENV: test
-          DB_HOST: '127.0.0.1'
+          DB_HOST: mysql
         run: |
           bundle install
           yarn install
