@@ -49,6 +49,6 @@ jobs:
         env:
           TEST_APP_DATABASE_PASSWORD: password
         run: |
-          bundle exec rake db:create
+          bundle install
           bundle exec rspec
 
