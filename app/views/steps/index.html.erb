@@ -1,4 +1,4 @@
 
 <% @steps.each do |step| %>
-  <h2><%= link_to step.name, course_step_path(id: step.id) %></h2>
+  <%= link_to step.name, course_step_path(id: step.id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
 <% end %>
