@@ -1,4 +1,17 @@
 
 <% @steps.each do |step| %>
+  <% if current_user %>
+    <%= user_progress = step.user_progresses.where!(user_id: current_user.id).first %>
+    <% # I have a problem here i can't call status method %>
+    <% if user_progress.status.completed? %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 inline-block">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    <% elsif user_progress.status.started? %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    <% end %>
+  <% end %>
   <%= link_to step.name, course_step_path(id: step.id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
 <% end %>

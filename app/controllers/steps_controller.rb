@@ -5,6 +5,10 @@ class StepsController < ApplicationController
   def show
     @step = Step.find(params[:id])
     @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
+    
+    if current_user
+      @step.user_progresses.first_or_create!(user_id: current_user.id).update!(status: 0)
+    end
   end
 
   private
