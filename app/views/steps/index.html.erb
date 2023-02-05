@@ -1,17 +1,23 @@
+<% if current_user %>
+  <% @steps_statuses.each do |step_status| %>
+    <% if(step_status[:status] == "started") %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+      </svg>
 
-<% @steps.each do |step| %>
-  <% if current_user %>
-    <%= user_progress = step.user_progresses.where!(user_id: current_user.id).first %>
-    <% # I have a problem here i can't call status method %>
-    <% if user_progress.status.completed? %>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 inline-block">
+    <% elsif(step_status[:status] == "completed")%>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
-    <% elsif user_progress.status.started? %>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    <% else %>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
       </svg>
     <% end %>
+      <%= link_to step_status[:step].name, course_step_path(id: step_status[:step].id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
   <% end %>
-  <%= link_to step.name, course_step_path(id: step.id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
+<% else %>
+  <% @steps.each do |step| %>
+    <%= link_to step.name, course_step_path(id: step.id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
+  <% end %>
 <% end %>
