@@ -7,4 +7,8 @@ class Course < ApplicationRecord
 
   validates_presence_of :name, :position, :track_id
   validates_uniqueness_of :position
+
+  def completed?
+    steps.any? ? steps.all? {|step| step.user_progresses.first.completed?} : false
+  end
 end
