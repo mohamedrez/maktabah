@@ -1,6 +1,6 @@
 <p><strong><%= @step.name %></strong></p>
 <% if @step.stepable_type == "Lecture" %>
-    <p><strong><a href=<%= Lecture.find(@step.stepable_id).youtube_video_link %>>The Video Link</a></strong></p>
+    <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @youtube_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
 <% else %>
     <% Quiz.find(@step.stepable_id).questions.each do |question| %>
         <p><strong><%= question.ask %></strong></p>
