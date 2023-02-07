@@ -4,4 +4,7 @@ class Course < ApplicationRecord
   has_rich_text :description
   validates_presence_of :name, :position, :track_id
   validates_uniqueness_of :position
+  has_many :steps, dependent: :destroy
+  has_many :user_progresses, as: :progressable
+
 end
