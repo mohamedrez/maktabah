@@ -1,4 +1,7 @@
-
+<h1 class="text-3xl font-bold underline" ><%= Course.find( params[:course_id].to_i ).name %></h1>
 <% @steps.each do |step| %>
-  <h2><%= link_to step.name, course_step_path(id: step.id) %></h2>
+
+  <%= render partial: "shared/status", locals: {progressable: step} %>
+  
+  <%= link_to step.name, course_step_path(id: step.id), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %><br>
 <% end %>
