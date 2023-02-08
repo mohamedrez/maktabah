@@ -11,6 +11,8 @@ class StepsController < ApplicationController
         progressable_id: @step.id
       )
       @user_progress.update_attribute('status', :started) unless @user_progress.status
+
+      UserProgressHistory.create!(step: @step, user: current_user)
     end
   end
 end
