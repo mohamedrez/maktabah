@@ -5,6 +5,7 @@ class UserProgress < ApplicationRecord
   enum status: { started: 0, completed: 1 }
   after_update :user_course_progress_callback
 
+  private
   def user_course_progress_callback
 
     return if status != 'completed' || progressable_type != 'Step'
@@ -19,12 +20,10 @@ class UserProgress < ApplicationRecord
     )
     return if user_progresses.count != step_ids.count
 
-    usp = UserProgress.first_or_create!(
-      user_id:,
-      progressable_type: 'Course',
-      progressable_id: course_id
-    )
-    # debugger
-    # up.update_attribute('status', :completed)
+    course = Course.find(course_id)
+    usp = course.user_progresses.first_or_create!(user_id:)
+
+    usp.update_attribute('status', :completed)
+
   end
 end
