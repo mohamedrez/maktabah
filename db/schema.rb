@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_142754) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_153654) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -63,6 +63,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_142754) do
     t.bigint "course_id", null: false
     t.index ["course_id", "profile_id"], name: "index_courses_profiles_on_course_id_and_profile_id"
     t.index ["profile_id", "course_id"], name: "index_courses_profiles_on_profile_id_and_course_id"
+  end
+
+  create_table "homes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
