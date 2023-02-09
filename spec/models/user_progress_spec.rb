@@ -27,5 +27,21 @@ RSpec.describe UserProgress, type: :model do
         ).first&.status
       ).to eq('completed')
     end
+
+    it 'status of course must be nil if all steps not compeleted' do
+      FactoryBot.create(
+        :user_progress, user: @user, progressable: @step1, status: :started
+      ).update(status: :completed)
+
+      FactoryBot.create(
+        :user_progress, user: @user, progressable: @step1, status: :started
+      )
+
+      expect(
+        UserProgress.where(
+          user_id: @user.id, progressable: @course
+        ).first&.status
+      ).to eq(nil)
+    end
   end
 end
