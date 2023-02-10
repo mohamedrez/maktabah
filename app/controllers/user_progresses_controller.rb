@@ -2,7 +2,7 @@ class UserProgressesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @user_progress = UserProgress.first_or_create!(
+    @user_progress = UserProgress.find_or_create_by(
       user_id: current_user.id,
       progressable_id: params[:step_id],
       progressable_type: 'Step'
