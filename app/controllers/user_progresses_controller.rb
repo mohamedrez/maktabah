@@ -4,9 +4,9 @@ class UserProgressesController < ApplicationController
   def create
     @user_progress = UserProgress.find_or_create_by(
       user_id: current_user.id,
-      progressable_id: params[:step_id],
+      progressable_id: user_progress_params[:step_id],
       progressable_type: 'Step'
-    ).update!(status: params[:status])
+    ).update!(status: user_progress_params[:status])
     head :no_content
   end
 
