@@ -7,4 +7,7 @@ class Course < ApplicationRecord
   has_many :steps, dependent: :destroy
   has_many :user_progresses, as: :progressable
 
+  def steps_count
+    steps.count
+  end
 end
