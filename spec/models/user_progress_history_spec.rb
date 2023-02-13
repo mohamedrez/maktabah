@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: user_progress_histories
+#
+#  id         :bigint           not null, primary key
+#  user_id    :bigint           not null
+#  step_id    :bigint           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require "rails_helper"
 
 RSpec.describe(UserProgressHistory, type: :model) do

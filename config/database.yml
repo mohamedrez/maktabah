@@ -16,6 +16,7 @@ default: &default
   username: <%= ENV.fetch("DB_USER") %>
   password: <%= ENV.fetch("DB_PASSWORD") %>
   socket: <%= ENV.fetch("DB_SOCKET") %>
+  host: <%= ENV.fetch("DB_HOST") %>
 
 development:
   <<: *default
