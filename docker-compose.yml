@@ -12,6 +12,7 @@ services:
     volumes:
       - .:/myapp
       - ./tmp/docker/node_modules:/myapp/node_modules
+      - ./tmp/docker/log:/myapp/log
     tty: true
     ports:
       - "3000:3000"
