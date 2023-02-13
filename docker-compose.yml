@@ -1,9 +1,9 @@
 services:
   db:
     image: mysql:5.7
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d
-      - ./tmp/db_data:/var/lib/mysql
+    # volumes:
+    #   - ./db:/docker-entrypoint-initdb.d
+    #   - ./tmp/db_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
   web:
