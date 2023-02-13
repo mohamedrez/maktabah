@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - ./tmp/db_data:/var/lib/mysql
+    environment:
+      MYSQL_PASSWORD: password
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec bin/dev -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+      - /myapp/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
