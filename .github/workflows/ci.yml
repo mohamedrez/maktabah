@@ -16,5 +16,9 @@ jobs:
       - name: start the db
         run: docker-compose up -d db
       - name: Build the stack
-        run: docker-compose run web bundle exec rails db:create && bundle exec rails db:migrate && rspec
+        run: docker-compose run web bundle exec rails db:create
+      - name: run migrations
+        run: docker-compose run web  bundle exec rails db:migrate
+      - name: rspec
+        run: docker-compose run web bundle exec rspec
 
