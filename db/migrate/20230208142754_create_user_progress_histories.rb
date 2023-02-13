@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class CreateUserProgressHistories < ActiveRecord::Migration[7.0]
   def change
-    create_table :user_progress_histories do |t|
-      t.references :user, null: false, foreign_key: true
-      t.references :step, null: false, foreign_key: true
+    create_table(:user_progress_histories) do |t|
+      t.references(:user, null: false, foreign_key: true)
+      t.references(:step, null: false, foreign_key: true)
 
       t.timestamps
     end

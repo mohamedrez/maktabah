@@ -6,3 +6,9 @@
         <p><strong><%= question.ask %></strong></p>
     <% end %>
 <% end %>
+<h1> Hey,! </h1>
+<%= form_with model: UserProgress.new  do |form| %>
+  <%= form.hidden_field :step_id, value: @step.id %>
+  <%= form.hidden_field :status, value: :completed %>
+  <%= form.submit "Mark as complete" %>
+<% end %>

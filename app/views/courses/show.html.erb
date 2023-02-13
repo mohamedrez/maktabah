@@ -1,0 +1,43 @@
+<div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset mb-10">
+  <div class="p-8 pb-0 px-6 pt-4 pb-4 border-b dark:border-gray-700">
+    <a id="introduction" class="no-underline scroll-mt-5 inline-block" href="#introduction">
+      <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300 hover:underline w-fit">
+        <%= @course.name %>
+      </h3>
+    </a>
+  </div>
+  <div class="p-8 py-4 px-4">
+    <div class="flex flex-col space-y-3" data-test-id="course-section">
+    <% @course.steps.each do |step| %>
+      <div class="flex justify-between items-center flex-shrink-1 group hover:bg-gray-100 dark:hover:bg-gray-700 px-2 rounded-lg transition ease-in-out  hover:transition-colors">
+        <a class="grow py-3" href="<% url_for(course_step_url(step)) %>">
+          <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0">
+              <title>Lesson</title>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"></path>
+            </svg>
+            <p class="text-gray-800 dark:text-gray-300"><%= step.name %></p>
+          </div>
+        </a>
+        <button data-controller="complete-button" data-complete-button-is-completed-value="true" data-complete-button-is-loading-value="false" data-action="click->complete-button#toggle" data-complete-button-id-param="364" data-complete-button-loading-class="complete-icon-button--loading" data-complete-button-completed-class="complete-icon-button--completed !text-teal-700 dark:!text-teal-600" data-test-id="complete-button" class="complete-icon-button h-7 sm:h-8 text-gray-400 dark:text-gray-500 hover:scale-105 complete-icon-button--completed !text-teal-700 dark:!text-teal-600">
+          <span class="complete-icon-button__loading-icon" data-complete-button-target="loading">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" role="img" aria-labelledby="ah8g43ep222fawsygpo1l9mn7gnelnk7 a1rdhl66skannq8uq8aibxknix9l355k" class="animate-spin h-6 sm:h-7">
+              <title id="ah8g43ep222fawsygpo1l9mn7gnelnk7">loading</title>
+              <desc id="a1rdhl66skannq8uq8aibxknix9l355k">loading spinner</desc>
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </span>
+          <span class="complete-icon-button__completed-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" role="img" aria-labelledby="a8nw5vgrccafzlonm77tmk3hl8mly3xz ag4fc74nlluf6lp2agjs111tdw47rcsc" class="h-7 sm:h-8">
+              <title id="a8nw5vgrccafzlonm77tmk3hl8mly3xz">check</title>
+              <desc id="ag4fc74nlluf6lp2agjs111tdw47rcsc">checkmark icon</desc>
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

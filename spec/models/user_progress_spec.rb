@@ -1,7 +1,21 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe UserProgress, type: :model do
-  context 'user completes all steps in a course' do
+# == Schema Information
+#
+# Table name: user_progresses
+#
+#  id                :bigint           not null, primary key
+#  status            :integer
+#  user_id           :bigint           not null
+#  progressable_type :string(255)      not null
+#  progressable_id   :bigint           not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+require "rails_helper"
+
+RSpec.describe(UserProgress, type: :model) do
+  context "user completes all steps in a course" do
     before do
       @user = FactoryBot.create(:user)
       @track = FactoryBot.create(:track)
@@ -12,7 +26,7 @@ RSpec.describe UserProgress, type: :model do
       @step2 = FactoryBot.create(:step, course: @course, stepable: @lecture2)
     end
 
-    it 'creates completes a course progress when all the steps are completed ' do
+    it "creates completes a course progress when all the steps are completed " do
       user_progress1 = FactoryBot.create(
         :user_progress, user: @user, progressable: @step1, status: :started
       )
@@ -23,12 +37,12 @@ RSpec.describe UserProgress, type: :model do
       user_progress2.update(status: :completed)
       expect(
         UserProgress.where(
-          user_id: @user.id, progressable: @course
-        ).first&.status
-      ).to eq('completed')
+          user_id: @user.id, progressable: @course,
+        ).first&.status,
+      ).to(eq("completed"))
     end
 
-    it 'status of course must be nil if all steps not compeleted' do
+    it "status of course must be nil if all steps not compeleted" do
       FactoryBot.create(
         :user_progress, user: @user, progressable: @step1, status: :started
       ).update(status: :completed)
@@ -39,9 +53,9 @@ RSpec.describe UserProgress, type: :model do
 
       expect(
         UserProgress.where(
-          user_id: @user.id, progressable: @course
-        ).first&.status
-      ).to eq(nil)
+          user_id: @user.id, progressable: @course,
+        ).first&.status,
+      ).to(eq(nil))
     end
   end
 end

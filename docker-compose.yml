@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:5.7
+    # volumes:
+    #   - ./db:/docker-entrypoint-initdb.d
+    #   - ./tmp/db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && yarn install && bin/dev"
+    volumes:
+      - .:/myapp
+      - ./tmp/docker/node_modules:/myapp/node_modules
+    tty: true
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DB_USER: root
+      DB_PASSWORD: password
+      DB_HOST: db
+      DB_SOCKET: ''
+    depends_on:
+      - db

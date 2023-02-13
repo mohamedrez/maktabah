@@ -1,0 +1,24 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: start the db
+        run: docker-compose up -d db
+      - name: Build the stack
+        run: docker-compose run web bundle exec rails db:create
+      - name: run migrations
+        run: docker-compose run web  bundle exec rails db:migrate
+      - name: rspec
+        run: docker-compose run web bundle exec rspec
+
