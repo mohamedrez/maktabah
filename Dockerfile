@@ -24,9 +24,11 @@ RUN chmod +x /usr/bin/entrypoint.sh
 
 RUN groupadd -r myapp_user && useradd -r -s /bin/false -g myapp_user myapp_user
 WORKDIR /myapp
+RUN mkdir -p /myapp/log
 RUN chown -R myapp_user:myapp_user /myapp
 RUN mkdir -p /home/myapp_user/.cache/yarn && chown -R myapp_user:myapp_user /home/myapp_user/.cache/yarn
 RUN mkdir -p /home/myapp_user/.yarn && chown -R myapp_user:myapp_user /home/myapp_user
+
 USER myapp_user
 
 ENTRYPOINT ["entrypoint.sh"]
