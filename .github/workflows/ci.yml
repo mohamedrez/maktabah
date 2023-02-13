@@ -11,51 +11,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:8
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test_maktabah
-          MYSQL_USER: test_maktabah_test_user
-          MYSQL_PASSWORD: password
-        ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     steps:
       - uses: actions/checkout@master
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1.0'
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 'lts/*'
-
-      - name: Install dependencies
-        run: |
-          npm install -g npm
-          sudo apt-get -yqq install libsqlite3-dev libpq-dev libmysqlclient-dev
-          gem install rails
-      # Clean up git repo so the new rails template doesn't conflict
-      - name: Remove git repo
-        run: |
-          rm -rf .git
-      - name: Run tests
-        env:
-          DB_USER: test_maktabah_test_user
-          DB_PASSWORD: password
-          DB_SOCKET: ''
-          RAILS_ENV: test
-          DB_HOST: mysql
-        run: |
-          bundle install
-          yarn install
-          ps -ef
-          bundle exec rake db:create
-          bundle exec rspec
+      - name: start the db
+        run: docker-compose up -d db
+      - name: Build the stack
+        run: docker-compose run web bundle exec rails db:create && bundle exec rails db:migrate && rspec
 

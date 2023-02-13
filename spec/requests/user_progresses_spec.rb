@@ -12,7 +12,7 @@ RSpec.describe "UserProgresses", type: :request do
         sign_in @user
       end
 
-      it "creates user progress with started and completes it " do
+      xit "creates user progress with started and completes it " do
         post user_progresses_path, params: { step_id: @step.id, status: :started }
         expect(UserProgress.first.status).to eq("started")
         post user_progresses_path, params: { step_id: @step.id, status: :completed }

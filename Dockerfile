@@ -16,7 +16,7 @@ RUN apt-get update -y && \
 
 RUN npm install -g yarn
 RUN yarn install --check-files
-
+RUN apt install -y mariadb-client
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
