@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Track < ApplicationRecord
   has_rich_text :description
   has_many :courses, -> { order(position: :asc) }
@@ -5,5 +7,4 @@ class Track < ApplicationRecord
   def courses_count
     courses.count
   end
-
 end

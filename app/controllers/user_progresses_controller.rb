@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserProgressesController < ApplicationController
   before_action :authenticate_user!
 
@@ -5,9 +7,9 @@ class UserProgressesController < ApplicationController
     @user_progress = UserProgress.find_or_create_by(
       user_id: current_user.id,
       progressable_id: user_progress_params[:step_id],
-      progressable_type: 'Step'
+      progressable_type: "Step",
     ).update!(status: user_progress_params[:status])
-    head :no_content
+    head(:no_content)
   end
 
   private
@@ -16,4 +18,3 @@ class UserProgressesController < ApplicationController
     params.require(:user_progress).permit(:user_id, :step_id, :status)
   end
 end
-

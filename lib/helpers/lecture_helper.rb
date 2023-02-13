@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module LectureHelper
-    def youtube_embed(youtube_url)
-        youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
-        youtube_id = $5
-      end
+  def youtube_embed(youtube_url)
+    youtube_url[%r{^.*((v/)|(embed/)|(watch\?))\??v?=?([^&?]*).*}]
+  end
 end
