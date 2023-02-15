@@ -17,4 +17,13 @@ class Step < ApplicationRecord
   belongs_to :course
   belongs_to :stepable, polymorphic: true
   has_many :user_progresses, as: :progressable
+
+  def next_step
+    course = Course.find(course_id)
+    steps_count = course.steps.count
+
+    return unless position + 1 < steps_count
+    
+    Step.find_by(position: (position + 1))
+  end
 end

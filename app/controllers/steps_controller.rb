@@ -10,7 +10,8 @@ class StepsController < ApplicationController
   end
 
   def show
-    @step = Step.find(params[:id])    
+    @step = Step.find(params[:id])
+    @course = Course.find(params[:course_id])
     @user_progress = UserProgress.find_by(progressable: @step)
     @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
     if current_user

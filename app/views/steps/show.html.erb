@@ -7,7 +7,36 @@
     <% end %>
 <% end %>
 
-<h1> Hey,! </h1>
+<div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+  <div class="p-8 ">
+    <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
+      <a class="button button--secondary font-medium" data-test-id="view-course-btn" href="/paths/full-stack-ruby-on-rails/courses/intermediate-html-and-css">
+        <i class="pr-2 text-lg far fa-map"></i>View Course
+      </a>
+      <button data-controller="complete-button" data-complete-button-is-completed-value="false" data-complete-button-is-loading-value="false" data-action="click->complete-button#toggle" data-complete-button-id-param="806" data-complete-button-loading-class="complete-button--loading" data-complete-button-completed-class="complete-button--completed" data-test-id="complete-button" class="button button--primary complete-button md:w-60 w-full">
+        <span class="complete-button__loading-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" role="img" aria-labelledby="ab25guu8eztzhc6rvvqim4o2frawg8y1 abz9s025ckmwou2xa4gty4yzguw9bops" class="animate-spin h-6"><title id="ab25guu8eztzhc6rvvqim4o2frawg8y1">loading</title><desc id="abz9s025ckmwou2xa4gty4yzguw9bops">loading spinner</desc>
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </span>
+        <span class="complete-button__content">
+          <span class="complete-button__completed-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" role="img" aria-labelledby="ai5536o6aerekryd8btjt7afi2tqo50j aergcuf8o3u8bfjsqvuf9byyl8logq6m" class="h-6"><title id="ai5536o6aerekryd8btjt7afi2tqo50j">check</title><desc id="aergcuf8o3u8bfjsqvuf9byyl8logq6m">checkmark icon</desc>
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+          </span>
+          <span class="complete-button__text font-medium" data-complete-button-target="text">Mark Complete</span>
+        </span>
+      </button>
+      <a class="button button--secondary font-medium" data-test-id="next-lesson-btn" href="/lessons/intermediate-html-and-css-positioning">
+        <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Lesson
+      </a>
+    </div>
+  </div>
+</div>
+
+<h1>Hi!</h1>
 <div id="update-status">
   <% unless @user_progress.completed? %>
     <%= button_to 'Mark complete', course_update_step_status_path, method: :patch %>
@@ -16,4 +45,10 @@
   <% end %>
 </div>
 
+<h1>Hello!</h1>
+<div>
+  <% if @step.position + 1 < @course.steps_count %>
+    <%= button_to 'Next Step', course_step_path(@course, @step.next_step), method: :get %>
+  <% end %>
+</div>
 
