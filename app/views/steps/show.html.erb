@@ -2,9 +2,11 @@
 <% if @step.stepable_type == "Lecture" %>
     <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @youtube_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
 <% else %>
-    <% Quiz.find(@step.stepable_id).questions.each do |question| %>
-        <p><strong><%= question.ask %></strong></p>
-    <% end %>
+    <%= javascript_include_tag "https://unpkg.com/jquery", defer: true %>
+    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css" %>
+    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", defer: true %>
+    <%= javascript_include_tag "surveyjs.js", defer: true %>
+    <div id="surveyContainer"></div>
 <% end %>
 
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
