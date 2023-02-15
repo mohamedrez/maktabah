@@ -10,7 +10,8 @@ class StepsController < ApplicationController
   end
 
   def show
-    @step = Step.find(params[:id])
+    @step = Step.find(params[:id])    
+    @user_progress = UserProgress.find_by(progressable: @step)
     @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
     if current_user
       @user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: @step)
@@ -19,5 +20,22 @@ class StepsController < ApplicationController
 
       UserProgressHistory.create!(step: @step, user: current_user)
     end
+  end
+
+  def update
+    @step = Step.find(params[:id])
+    @course = Course.find(params[:course_id])
+    @user_progress = UserProgress.find_by(progressable: @step)
+
+    unless @user_progress.completed?
+      @user_progress.completed!
+    else
+      @user_progress.started!
+    end
+
+    respond_to do |format|
+      format.html { redirect_to course_step_url(@course ,@step)}
+      format.js
+   end
   end
 end

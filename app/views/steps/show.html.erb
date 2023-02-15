@@ -8,13 +8,12 @@
 <% end %>
 
 <h1> Hey,! </h1>
-<%= form_with model: UserProgress.new  do |form| %>
-  <%= form.hidden_field :step_id, value: @step.id %>
-  <% unless UserProgress.find_by(progressable: @step).completed? %>
-    <%= form.hidden_field :status, value: :completed %>
-    <%= form.submit "Mark complete" %>
+<div id="update-status">
+  <% unless @user_progress.completed? %>
+    <%= button_to 'Mark complete', course_update_step_status_path, method: :patch %>
   <% else %>
-    <%= form.hidden_field :status, value: :started %>
-    <%= form.submit "Lesson Completed" %>
+    <%= button_to 'Lesson Completed', course_update_step_status_path, method: :patch %>
   <% end %>
-<% end %>
+</div>
+
+
