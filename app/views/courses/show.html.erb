@@ -10,7 +10,7 @@
     <div class="flex flex-col space-y-3" data-test-id="course-section">
     <% @course.steps.each do |step| %>
       <div class="flex justify-between items-center flex-shrink-1 group hover:bg-gray-100 dark:hover:bg-gray-700 px-2 rounded-lg transition ease-in-out  hover:transition-colors">
-        <a class="grow py-3" href="<% url_for(course_step_url(step)) %>">
+        <a class="grow py-3" href="<%= url_for(course_step_url(@course, step)) %>">
           <div class="flex items-center gap-3">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0">
               <title>Lesson</title>
