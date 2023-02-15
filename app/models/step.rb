@@ -20,9 +20,7 @@ class Step < ApplicationRecord
 
   def next_step
     course = Course.find(course_id)
-    steps_count = course.steps.count
-
-    return unless position + 1 < steps_count
+    return unless position + 1 < course.steps_count
     
     Step.find_by(position: (position + 1))
   end
