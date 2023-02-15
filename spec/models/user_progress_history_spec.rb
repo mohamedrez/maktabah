@@ -39,7 +39,7 @@ RSpec.describe(UserProgressHistory, type: :model) do
     UserProgressHistory.create!(user: @user1, step: @step3)
 
     expect(
-      UserProgressHistory.get_last_step(@user2),
+      UserProgressHistory.get_last_step(@user2)
     ).to(eq(@step2))
   end
 
@@ -51,7 +51,7 @@ RSpec.describe(UserProgressHistory, type: :model) do
     UserProgressHistory.create!(user: @user1, step: @step3)
 
     expect(
-      UserProgressHistory.get_last_course(@user1),
+      UserProgressHistory.get_last_course(@user1)
     ).to(eq(@course))
   end
 end

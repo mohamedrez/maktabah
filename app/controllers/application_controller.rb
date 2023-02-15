@@ -5,6 +5,3 @@ class ApplicationController < ActionController::Base
     stored_location_for(resource) || dashboard_index_path
   end
 end
-
-
-

@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   def update
     ids = params[:courses_ids]
     ids.each do |id|
-      params[:type] == "a" ? @profile.courses << Course.find(id) : @profile.courses.delete(Course.find(id))
+      (params[:type] == "a") ? @profile.courses << Course.find(id) : @profile.courses.delete(Course.find(id))
     end
     redirect_to(profile_path(@profile.id))
   end
@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
           list_courses << course
         end
       end
-      track_courses << { track_name: track.name, courses: list_courses }
+      track_courses << {track_name: track.name, courses: list_courses}
     end
     track_courses
   end
