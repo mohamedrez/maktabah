@@ -24,7 +24,7 @@ class StepsController < ApplicationController
     end
   end
 
-  def update
+  def update_status
     @step = Step.find(params[:id])
     @course = Course.find(params[:course_id])
     @user_progress = UserProgress.find_by(progressable: @step)
