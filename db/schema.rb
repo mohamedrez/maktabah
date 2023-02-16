@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_15_164525) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_081256) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -129,6 +129,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_164525) do
     t.index ["user_id"], name: "index_user_progresses_on_user_id"
   end
 
+  create_table "user_quiz_responses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "quiz_id", null: false
+    t.string "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_user_quiz_responses_on_quiz_id"
+    t.index ["user_id"], name: "index_user_quiz_responses_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -148,4 +158,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_164525) do
   add_foreign_key "user_progress_histories", "steps"
   add_foreign_key "user_progress_histories", "users"
   add_foreign_key "user_progresses", "users"
+  add_foreign_key "user_quiz_responses", "quizzes"
+  add_foreign_key "user_quiz_responses", "users"
 end
