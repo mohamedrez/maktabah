@@ -4,6 +4,17 @@ var surveyJSON = {"title":"Rails Test","logoPosition":"right","pages":[{"name":"
 
 function sendDataToServer(survey) {
     //send Ajax request to your web server
+
+    // THIS AJAX REQUEST DOESN'T WORK
+    // var quizId = $(this).val();
+    // $.ajax({
+    //     url: '/user_quiz_responses',
+    //     type: "post",
+    //     data: { response: JSON.stringify(survey.data), quiz_id: JSON.stringify(quizId) },
+    //     processData: false,
+    //     contentType: "application/json; charset=UTF-8"
+    // });
+
     alert("The results are: " + JSON.stringify(survey.data));
 }
 
