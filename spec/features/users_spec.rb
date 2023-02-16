@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "User management", type: :feature do
   scenario "login" do
     visit "/users/sign_in"
-    user = User.create! email: "email@eila,com", password: "somepassword"
+    user = User.create! email: "email@eila.com", password: "somepassword"
     fill_in "user_email", with: user.email
     fill_in "user_password", with: "wrongpassword"
     click_button "Log in"
