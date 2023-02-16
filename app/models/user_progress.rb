@@ -16,7 +16,7 @@ class UserProgress < ApplicationRecord
   belongs_to :user
   belongs_to :progressable, polymorphic: true
 
-  enum status: { started: 0, completed: 1 }
+  enum status: {started: 0, completed: 1}
   after_update :user_course_progress_callback
 
   private
@@ -30,7 +30,7 @@ class UserProgress < ApplicationRecord
       user_id:,
       progressable_type: "Step",
       progressable_id: step_ids,
-      status: :completed,
+      status: :completed
     )
     return if user_progresses.count != step_ids.count
 

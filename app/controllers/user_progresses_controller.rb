@@ -7,7 +7,7 @@ class UserProgressesController < ApplicationController
     @user_progress = UserProgress.find_or_create_by(
       user_id: current_user.id,
       progressable_id: user_progress_params[:step_id],
-      progressable_type: "Step",
+      progressable_type: "Step"
     ).update!(status: user_progress_params[:status])
     head(:no_content)
   end

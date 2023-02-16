@@ -15,11 +15,10 @@ class UserProgressHistory < ApplicationRecord
   belongs_to :step
 
   def self.get_last_step(user)
-    Step.find(UserProgressHistory.where(user:).last.step_id)
+    return
   end
 
   def self.get_last_course(user)
-    step = Step.find(UserProgressHistory.where(user:).last.step_id)
-    Course.find(step.course_id)
+    return
   end
 end

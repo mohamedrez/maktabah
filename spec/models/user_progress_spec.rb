@@ -37,8 +37,8 @@ RSpec.describe(UserProgress, type: :model) do
       user_progress2.update(status: :completed)
       expect(
         UserProgress.where(
-          user_id: @user.id, progressable: @course,
-        ).first&.status,
+          user_id: @user.id, progressable: @course
+        ).first&.status
       ).to(eq("completed"))
     end
 
@@ -53,8 +53,8 @@ RSpec.describe(UserProgress, type: :model) do
 
       expect(
         UserProgress.where(
-          user_id: @user.id, progressable: @course,
-        ).first&.status,
+          user_id: @user.id, progressable: @course
+        ).first&.status
       ).to(eq(nil))
     end
   end
