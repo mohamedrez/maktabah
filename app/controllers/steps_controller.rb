@@ -13,6 +13,7 @@ class StepsController < ApplicationController
     @step = Step.find(params[:id])
     @course = Course.find(params[:course_id])
     @user_progress = UserProgress.find_by(progressable: @step)
+    @index_plus_one = @course.steps.index(@step) + 1
 
     if @step.stepable_type == "Lecture"
       @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
