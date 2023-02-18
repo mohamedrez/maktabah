@@ -2,10 +2,10 @@
 <% if @step.stepable_type == "Lecture" %>
     <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @youtube_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
 <% else %>
-    <%= javascript_include_tag "https://unpkg.com/jquery", defer: true %>
-    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css" %>
-    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", defer: true %>
-    <%= javascript_include_tag "surveyjs.js", defer: true %>
+    <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", defer: true %>
     <div id="surveyContainer"></div>
 <% end %>
 
