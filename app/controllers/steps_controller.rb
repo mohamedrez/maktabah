@@ -37,7 +37,7 @@ class StepsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to course_step_url(@course ,@step)}
-      format.js
+      format.js {render :update_status}
     end
   end
 end
