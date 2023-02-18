@@ -14,5 +14,20 @@
 require "rails_helper"
 
 RSpec.describe(Course, type: :model) do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @track = FactoryBot.create(:track)
+    @course = FactoryBot.create(:course, track: @track)
+    @lecture1 = FactoryBot.create(:lecture)
+    @lecture2 = FactoryBot.create(:lecture)
+    @lecture3 = FactoryBot.create(:lecture)
+    @step1 = FactoryBot.create(:step, course: @course, stepable: @lecture1)
+    @step2 = FactoryBot.create(:step, course: @course, stepable: @lecture2)
+    @step3 = FactoryBot.create(:step, course: @course, stepable: @lecture3)
+  end
+
+  describe "#steps_count" do
+    it "returns the count of the steps" do
+      expect(@course.steps_count).to eql(3)
+    end
+  end
 end

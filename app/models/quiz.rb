@@ -10,5 +10,5 @@
 #
 class Quiz < ApplicationRecord
   has_one :step, as: :stepable
-  has_many :questions
+  has_many :user_quiz_responses
 end

@@ -16,5 +16,22 @@
 require "rails_helper"
 
 RSpec.describe(Step, type: :model) do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @track = FactoryBot.create(:track)
+    @course = FactoryBot.create(:course, track: @track)
+    @lecture1 = FactoryBot.create(:lecture)
+    @lecture2 = FactoryBot.create(:lecture)
+    @step1 = FactoryBot.create(:step, course: @course, stepable: @lecture1, position: 0)
+    @step2 = FactoryBot.create(:step, course: @course, stepable: @lecture2, position: 1)
+  end
+
+  describe "#next_step" do
+    it "return the next step because it exists" do
+      expect(@step1.next_step).to eql(@step2)
+    end
+
+    it "return null because this step is the last one" do
+      expect(@step2.next_step).to eql(nil)
+    end
+  end
 end

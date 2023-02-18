@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   patch "/profiles/:id", to: "profiles#update", as: "update_profile"
   resources :courses do
     resources :steps, only: [:index, :show]
+    patch '/steps/:id', to: 'steps#update_status', as: 'update_step_status'
   end
-
+  post '/user_quiz_responses', to: 'user_quiz_responses#create'
   resources :user_progresses, only: [:create, :update]
 end

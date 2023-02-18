@@ -2,13 +2,42 @@
 <% if @step.stepable_type == "Lecture" %>
     <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @youtube_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
 <% else %>
-    <% Quiz.find(@step.stepable_id).questions.each do |question| %>
-        <p><strong><%= question.ask %></strong></p>
-    <% end %>
+    <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", defer: true %>
+    <div id="surveyContainer"></div>
 <% end %>
-<h1> Hey,! </h1>
-<%= form_with model: UserProgress.new  do |form| %>
-  <%= form.hidden_field :step_id, value: @step.id %>
-  <%= form.hidden_field :status, value: :completed %>
-  <%= form.submit "Mark as complete" %>
-<% end %>
+
+<div class="bg-gray-100 dark:bg-gray-800/30 text-center">
+  <div class="page-container">
+    <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+      <div class="p-8 ">
+        <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
+          <a class="button button--secondary font-medium" href="<%= url_for(course_url(@course)) %>">
+            <i class="pr-2 text-lg far fa-map"></i>View Course
+          </a>
+          
+          <% if current_user %>
+            <div id="update-status" class="complete-button__text font-medium">
+              <% unless @user_progress.completed? %>
+                <%= button_to 'Mark complete', course_update_step_status_path, method: :patch, remote: true %>
+              <% else %>
+                <%= button_to 'Lesson Completed', course_update_step_status_path, method: :patch, remote: true %>
+              <% end %>
+            </div>
+          <% end %>
+
+          <% if @index_plus_one < @course.steps_count %>
+            <a class="button button--secondary font-medium" href="<%= url_for(course_step_url(@course, @step.next_step)) %>">
+              <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Step
+            </a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
