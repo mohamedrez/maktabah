@@ -12,11 +12,13 @@ class UserQuizResponsesController < ApplicationController
             @user_quiz_response.update_attribute("response", @response)
 
             if @response == @quiz.answer
-                flash[:notice] = 'The answers are all true.'
+                @user_progress = UserProgress.find_by(progressable: @step)
+                @user_progress.completed! unless @user_progress.completed?
+                flash[:notice] = 'The quiz is passed.'
                 render js: %(window.location.pathname='#{course_path(@course)}')
             else
-                flash[:alert] = 'At least one answer is false'
-                render js: %(window.location.pathname='#{course_path(@course)}')
+                flash[:alert] = "The quiz isn't passed."
+                render js: %(window.location.pathname='#{course_step_path(@course, @step)}')
             end
         end
     end
