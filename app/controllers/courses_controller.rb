@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CoursesController < ApplicationController
+  load_and_authorize_resource except: [:index, :show]
+  
   def show
     @course = Course.find(params[:id])
   end
