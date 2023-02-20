@@ -4,14 +4,13 @@ require_relative "../../lib/helpers/lecture_helper"
 
 class StepsController < ApplicationController
   include LectureHelper
+  before_action :set_course_step, only: [:show, :update_status]
 
   def index
     @steps = Step.where(course_id: params[:course_id])
   end
 
   def show
-    @step = Step.find(params[:id])
-    @course = Course.find(params[:course_id])
     @user_progress = UserProgress.find_by(progressable: @step)
     @index_plus_one = @course.steps.index(@step) + 1
 
@@ -26,8 +25,6 @@ class StepsController < ApplicationController
   end
 
   def update_status
-    @step = Step.find(params[:id])
-    @course = Course.find(params[:course_id])
     @user_progress = UserProgress.find_by(progressable: @step)
 
     unless @user_progress.completed?
@@ -40,5 +37,11 @@ class StepsController < ApplicationController
       format.html { redirect_to course_step_url(@course ,@step)}
       format.js {render :update_status}
     end
+  end
+
+  private
+  def set_course_step
+    @course = Course.find(params[:course_id])
+    @step = Step.find(params[:id])
   end
 end
