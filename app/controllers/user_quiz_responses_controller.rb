@@ -11,7 +11,7 @@ class UserQuizResponsesController < ApplicationController
             @user_quiz_response = UserQuizResponse.find_or_create_by!(user: current_user, quiz: @quiz)
             @user_quiz_response.update_attribute("response", @response)
 
-            if @response == @quiz.answer
+            if @response.delete(' ') == @quiz.answer.delete("\n").delete(' ')
                 @user_progress = UserProgress.find_by(progressable: @step)
                 @user_progress.completed! unless @user_progress.completed?
                 flash[:notice] = 'The quiz is passed.'

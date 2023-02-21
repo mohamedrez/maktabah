@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "../../lib/helpers/lecture_helper"
+require 'json'
 
 class StepsController < ApplicationController
   include LectureHelper
@@ -17,12 +18,15 @@ class StepsController < ApplicationController
 
     if current_user
       @user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: @step)
-      @user_progress.update_attribute("status", :started) unless @user_progress.status
+      @user_progress.update!(status: :started) unless @user_progress.status
       UserProgressHistory.create!(step: @step, user: current_user)
     end
 
     if @step.stepable_type == "Lecture"
       @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
+    elsif @step.stepable_type == "Quiz"
+      @quiz = @step.stepable
+      @surveyjs = JSON.parse(@quiz.surveyjs).to_json
     end
   end
 
