@@ -5,6 +5,9 @@ require 'json'
 
 class StepsController < ApplicationController
   include LectureHelper
+
+  before_action :authenticate_user!, only: [:new, :create, :update_status]
+  load_and_authorize_resource except: [:index, :show, :update_status]
   before_action :set_course_step, only: [:show, :update_status]
   before_action :set_course, only: [:new, :create]
 
