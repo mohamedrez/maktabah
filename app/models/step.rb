@@ -13,7 +13,12 @@
 #  updated_at    :datetime         not null
 #  name          :string(255)
 #
+
+require_relative "../../lib/helpers/lecture_helper"
+
 class Step < ApplicationRecord
+  include LectureHelper
+  
   belongs_to :course
   belongs_to :stepable, polymorphic: true
   has_many :user_progresses, as: :progressable
@@ -25,5 +30,21 @@ class Step < ApplicationRecord
     return if index_plus_one >= course.steps_count
 
     steps[index_plus_one]
+  end
+
+  # organization show action
+
+  def up_status(current_user)
+    user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: self)
+    user_progress.update!(status: :started) unless user_progress.status
+    user_progress.status
+  end
+
+  def get_my_assets
+    if stepable_type == "Lecture"
+      youtube_embed(Lecture.find(stepable_id).youtube_video_link)
+    elsif stepable_type == "Quiz"
+      JSON.parse(stepable.surveyjs).to_json
+    end
   end
 end

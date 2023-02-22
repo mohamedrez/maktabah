@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "../../lib/helpers/lecture_helper"
 require 'json'
 
 class StepsController < ApplicationController
-  include LectureHelper
-
   before_action :authenticate_user!, only: [:new, :create, :update_status]
   load_and_authorize_resource except: [:index, :show, :update_status]
   before_action :set_course_step, only: [:show, :update_status]
@@ -16,20 +13,13 @@ class StepsController < ApplicationController
   end
 
   def show
-    @user_progress = UserProgress.find_by(progressable: @step)
     @index_plus_one = @course.steps.index(@step) + 1
 
-    if current_user
-      @user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: @step)
-      @user_progress.update!(status: :started) unless @user_progress.status
-      UserProgressHistory.create!(step: @step, user: current_user)
-    end
+    @my_assets = @step.get_my_assets
 
-    if @step.stepable_type == "Lecture"
-      @youtube_id = youtube_embed(Lecture.find(@step.stepable_id).youtube_video_link)
-    elsif @step.stepable_type == "Quiz"
-      @quiz = @step.stepable
-      @surveyjs = JSON.parse(@quiz.surveyjs).to_json
+    if current_user
+      @up_status = @step.up_status current_user
+      UserProgressHistory.create!(step: @step, user: current_user)
     end
   end
 
