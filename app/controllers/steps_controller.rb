@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'json'
+require "json"
 
 class StepsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update_status]
@@ -39,10 +39,11 @@ class StepsController < ApplicationController
 
   def create
     @step = @course.steps.new(step_params)
-    if params[:stepable] == "lecture"
-      @step.stepable = Lecture.create!(youtube_video_link: params[:youtube_video_link])
+
+    @step.stepable = if params[:stepable] == "lecture"
+      Lecture.create!(youtube_video_link: params[:youtube_video_link])
     else
-      @step.stepable = Quiz.create!(surveyjs: params[:surveyjs], answer: params[:answer])
+      Quiz.create!(surveyjs: params[:surveyjs], answer: params[:answer])
     end
 
     if @step.save
@@ -63,6 +64,7 @@ class StepsController < ApplicationController
     @course = Course.find(params[:course_id])
     @step = Step.find(params[:id])
   end
+
   def set_course
     @course = Course.find(params[:course_id])
   end
