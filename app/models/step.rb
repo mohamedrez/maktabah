@@ -40,7 +40,7 @@ class Step < ApplicationRecord
     user_progress.status
   end
 
-  def get_my_assets
+  def get_my_asset
     if stepable_type == "Lecture"
       youtube_embed(Lecture.find(stepable_id).youtube_video_link)
     elsif stepable_type == "Quiz"

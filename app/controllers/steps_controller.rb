@@ -15,7 +15,7 @@ class StepsController < ApplicationController
   def show
     @index_plus_one = @course.steps.index(@step) + 1
 
-    @my_assets = @step.get_my_assets
+    @my_asset = @step.get_my_asset
 
     if current_user
       @up_status = @step.up_status current_user
@@ -24,13 +24,7 @@ class StepsController < ApplicationController
   end
 
   def update_status
-    @user_progress = UserProgress.find_by(progressable: @step)
-
-    unless @user_progress.completed?
-      @user_progress.completed!
-    else
-      @user_progress.started!
-    end
+    UserProgress.find_by(progressable: @step).update_status
 
     respond_to do |format|
       format.html { redirect_to course_step_url(@course, @step) }
