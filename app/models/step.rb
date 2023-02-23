@@ -24,11 +24,9 @@ class Step < ApplicationRecord
   has_many :user_progresses, as: :progressable
 
   def next_step
-    course = Course.find(course_id)
     steps = Course.find(course_id).steps
     index_plus_one = steps.index(self) + 1
-    return if index_plus_one >= course.steps_count
-
+    return if index_plus_one >= steps.count
     steps[index_plus_one]
   end
 

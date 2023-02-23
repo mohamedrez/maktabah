@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Motor::Admin => "/motor_admin"
   resources :home, only: [:index]
   resources :dashboard, only: [:index]
   devise_for :users
@@ -13,8 +14,8 @@ Rails.application.routes.draw do
   patch "/profiles/:id", to: "profiles#update", as: "update_profile"
   resources :courses do
     resources :steps, only: [:index, :show, :new, :create]
-    patch '/steps/:id', to: 'steps#update_status', as: 'update_step_status'
+    patch "/steps/:id", to: "steps#update_status", as: "update_step_status"
   end
-  post '/user_quiz_responses', to: 'user_quiz_responses#create'
+  post "/user_quiz_responses", to: "user_quiz_responses#create"
   resources :user_progresses, only: [:create, :update]
 end
