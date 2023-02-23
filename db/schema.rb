@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_062116) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_104823) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -309,6 +309,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_062116) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_points", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "scorable_type", null: false
+    t.bigint "scorable_id", null: false
+    t.boolean "check?", default: false
+    t.integer "point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scorable_type", "scorable_id"], name: "index_user_points_on_scorable"
+    t.index ["user_id"], name: "index_user_points_on_user_id"
+  end
+
   create_table "user_progress_histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "step_id", null: false
@@ -362,6 +374,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_062116) do
   add_foreign_key "motor_taggable_tags", "motor_tags", column: "tag_id"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "steps", "courses"
+  add_foreign_key "user_points", "users"
   add_foreign_key "user_progress_histories", "steps"
   add_foreign_key "user_progress_histories", "users"
   add_foreign_key "user_progresses", "users"

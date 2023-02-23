@@ -18,7 +18,7 @@ class Course < ApplicationRecord
   validates :name, :position, :track_id, presence: true
   validates :position, uniqueness: true
   has_many :steps, dependent: :destroy
-  has_many :user_progresses, as: :progressable
-
+  has_many :user_progresses, as: :progressable, dependent: :destroy
+  has_one :user_point, as: :scorable, dependent: :destroy
   delegate :count, to: :steps, prefix: true
 end

@@ -25,6 +25,7 @@ class StepsController < ApplicationController
 
   def update_status
     UserProgress.find_by(progressable: @step).update_status
+    UserPoint.score_me(current_user, @step)
 
     respond_to do |format|
       format.html { redirect_to course_step_url(@course, @step) }
