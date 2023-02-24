@@ -321,15 +321,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_104823) do
     t.index ["user_id"], name: "index_user_points_on_user_id"
   end
 
-  create_table "user_progress_histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "step_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["step_id"], name: "index_user_progress_histories_on_step_id"
-    t.index ["user_id"], name: "index_user_progress_histories_on_user_id"
-  end
-
   create_table "user_progresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "status"
     t.bigint "user_id", null: false
@@ -375,8 +366,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_104823) do
   add_foreign_key "questions", "quizzes"
   add_foreign_key "steps", "courses"
   add_foreign_key "user_points", "users"
-  add_foreign_key "user_progress_histories", "steps"
-  add_foreign_key "user_progress_histories", "users"
   add_foreign_key "user_progresses", "users"
   add_foreign_key "user_quiz_responses", "quizzes"
   add_foreign_key "user_quiz_responses", "users"
