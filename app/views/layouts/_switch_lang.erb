@@ -1,0 +1,9 @@
+<div style="font-weight: bold;">
+    <% unless current_page?(locale: :en) %>
+        <%= link_to t('navbar.switch_to'), locale: :en %>
+    <% end %>
+
+    <% unless current_page?(locale: :ar) %>
+        <%= link_to t('navbar.switch_to'), locale: :ar %>
+    <% end %>
+</div>
