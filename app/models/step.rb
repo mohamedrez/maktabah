@@ -35,7 +35,12 @@ class Step < ApplicationRecord
 
   def up_status(current_user)
     user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: self)
-    user_progress.update!(status: :started) unless user_progress.status
+    unless user_progress.status
+      user_progress.update!(status: :started)
+
+      course = Course.find(course_id)
+      UserProgress.create!(user: current_user, progressable: course, status: :started)
+    end
     user_progress.status
   end
 

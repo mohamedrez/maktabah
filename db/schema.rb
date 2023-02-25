@@ -275,14 +275,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_104823) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "ask"
-    t.bigint "quiz_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
-  end
-
   create_table "quizzes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -363,7 +355,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_104823) do
   add_foreign_key "motor_note_tag_tags", "motor_note_tags", column: "tag_id"
   add_foreign_key "motor_note_tag_tags", "motor_notes", column: "note_id"
   add_foreign_key "motor_taggable_tags", "motor_tags", column: "tag_id"
-  add_foreign_key "questions", "quizzes"
   add_foreign_key "steps", "courses"
   add_foreign_key "user_points", "users"
   add_foreign_key "user_progresses", "users"

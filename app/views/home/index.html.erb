@@ -1,0 +1,6 @@
+
+<% if current_user %>
+    <%= render partial: "private", locals: {active_step: @active_step, active_course: @active_course, in_progress: @in_progress, completed_courses: @completed_courses} %>
+<% else %>
+    <%= render partial: "public" %>
+<% end %>
