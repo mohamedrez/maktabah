@@ -8,12 +8,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @progress_hash = {}
     return unless current_user
-
-    step_progresses = UserProgress.where(
-      user_id: current_user.id, progressable_type: "Step"
-    ).pluck(:id, :status)
-     .each{ |id, status| @progress_hash[id] = status }
-
+    @progress_hash = @course.get_work_done(current_user)
   end
 
   def index

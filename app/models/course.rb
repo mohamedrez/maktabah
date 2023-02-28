@@ -21,4 +21,14 @@ class Course < ApplicationRecord
   has_many :user_progresses, as: :progressable, dependent: :destroy
   has_one :user_point, as: :scorable, dependent: :destroy
   delegate :count, to: :steps, prefix: true
+
+  def get_work_done(current_user)
+    progress_hash = {}
+    up = UserProgress.where(user: current_user, progressable_type: "Step").pluck(:progressable_id, :status)
+    s = steps.pluck(:id)
+    up.each do |progressable_id, status|
+      progress_hash[progressable_id] = status if s.include?(progressable_id)
+    end
+    progress_hash
+  end
 end
