@@ -9,6 +9,8 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
+require_relative "../../lib/helpers/lecture_helper"
+
 class Lecture < ApplicationRecord
   include LectureHelper
 

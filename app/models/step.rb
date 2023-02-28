@@ -13,9 +13,6 @@
 #  updated_at    :datetime         not null
 #  name          :string(255)
 #
-
-require_relative "../../lib/helpers/lecture_helper"
-
 class Step < ApplicationRecord
 
   belongs_to :course

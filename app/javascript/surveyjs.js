@@ -4,7 +4,7 @@ var surveyJSON = document.getElementById("helper").getAttribute("data-surveyjs")
 
 function sendDataToServer(survey) {
     //send Ajax request to your web server
-    var quizId = window.location.pathname.split('/')[4];
+    var quizId = window.location.pathname.split('/')[5];
     $.ajax({
         url: '/user_quiz_responses',
         type: "post",
