@@ -17,8 +17,7 @@
 require_relative "../../lib/helpers/lecture_helper"
 
 class Step < ApplicationRecord
-  include LectureHelper
-  
+
   belongs_to :course
   belongs_to :stepable, polymorphic: true
   has_one :user_point, as: :scorable
@@ -44,11 +43,5 @@ class Step < ApplicationRecord
     user_progress.status
   end
 
-  def get_my_asset
-    if stepable_type == "Lecture"
-      youtube_embed(Lecture.find(stepable_id).youtube_video_link)
-    elsif stepable_type == "Quiz"
-      JSON.parse(stepable.surveyjs).to_json
-    end
-  end
+
 end
