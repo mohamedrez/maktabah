@@ -12,7 +12,6 @@ class Quiz < ApplicationRecord
   has_one :step, as: :stepable
   has_many :user_quiz_responses
 
-
   def get_my_asset
     JSON.parse(surveyjs).to_json
   end

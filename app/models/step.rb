@@ -14,7 +14,6 @@
 #  name          :string(255)
 #
 class Step < ApplicationRecord
-
   belongs_to :course
   belongs_to :stepable, polymorphic: true
   has_one :user_point, as: :scorable
@@ -39,6 +38,4 @@ class Step < ApplicationRecord
     end
     user_progress.status
   end
-
-
 end

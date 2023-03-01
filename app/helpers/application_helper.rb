@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def direction
-    I18n.locale == :ar ? 'rtl' : 'ltr'
+    (I18n.locale == :ar) ? "rtl" : "ltr"
   end
 end

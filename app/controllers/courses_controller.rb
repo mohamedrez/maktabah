@@ -31,6 +31,7 @@ class CoursesController < ApplicationController
   end
 
   private
+
   def course_params
     params.require(:course).permit(:track_id, :position, :name, :description)
   end

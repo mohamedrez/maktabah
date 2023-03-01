@@ -20,14 +20,12 @@ class UserQuizResponsesController < ApplicationController
         flash[:alert] = "The quiz isn't passed."
         render js: %(window.location.pathname='#{course_step_path(@course, @step)}')
       end
+    elsif @response.delete(" ") == @quiz.answer.delete("\n").delete(" ")
+      flash[:notice] = "The quiz is passed."
+      render js: %(window.location.pathname='#{course_path(@course)}')
     else
-      if @response.delete(" ") == @quiz.answer.delete("\n").delete(" ")
-        flash[:notice] = "The quiz is passed."
-        render js: %(window.location.pathname='#{course_path(@course)}')
-      else
-        flash[:alert] = "The quiz isn't passed."
-        render js: %(window.location.pathname='#{course_step_path(@course, @step)}')
-      end
+      flash[:alert] = "The quiz isn't passed."
+      render js: %(window.location.pathname='#{course_step_path(@course, @step)}')
     end
   end
 end
