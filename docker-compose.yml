@@ -21,5 +21,7 @@ services:
       DB_PASSWORD: password
       DB_HOST: db
       DB_SOCKET: ''
+      GMAIL_USERNAME: 's'
+      GMAIL_PASSWORD: 's'
     depends_on:
       - db
