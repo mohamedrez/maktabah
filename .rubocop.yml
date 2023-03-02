@@ -5,6 +5,7 @@ inherit_gem:
   standard: config/base.yml
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'db/**/*'
     - 'bin/**/*'
