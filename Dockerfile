@@ -1,4 +1,4 @@
-FROM mohamedrez/maktaba_base:0.0.1
+FROM mohamedrez/maktaba_base:0.0.2
 
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
