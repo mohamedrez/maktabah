@@ -23,5 +23,6 @@ services:
       DB_SOCKET: ''
       GMAIL_USERNAME: 's'
       GMAIL_PASSWORD: 's'
+      DELIVERY_METHOD: DELIVERY_METHOD
     depends_on:
       - db
