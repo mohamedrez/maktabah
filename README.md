@@ -7,6 +7,8 @@ after you clone the project run this commands:
 yarn install
 bundle install
 
+bundle exec overcommit --install
+
 ```
 
 

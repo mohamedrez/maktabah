@@ -55,7 +55,6 @@ gem "lograge"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 gem "devise"
-gem "strong_migrations"
 gem "cancancan"
 gem "motor-admin"
 
@@ -73,12 +72,16 @@ end
 
 group :test do
   gem "capybara"
+  gem "simplecov", require: false
+  gem "rspec_junit_formatter"
+  gem "simplecov-cobertura", require: false
+  gem "codecov"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem "overcommit"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
