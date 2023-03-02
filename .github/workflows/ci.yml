@@ -21,3 +21,9 @@ jobs:
         run: docker-compose run web  bundle exec rails db:migrate
       - name: rspec
         run: docker-compose run web bundle exec rspec
+      - name: logfiles
+        run: ls -alrt coverage
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
