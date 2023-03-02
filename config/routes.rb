@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount Motor::Admin => "/motor_admin"
+  
   scope "(:locale)", locale: /en|ar/ do
-    mount Motor::Admin => "/motor_admin"
     resources :home, only: [:index]
     resources :dashboard, only: [:index]
     devise_for :users
