@@ -16,12 +16,12 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "capybara/rspec"
-require 'simplecov'
-if ENV.include? 'CODECOV_TOKEN'
-  require 'codecov'
+require "simplecov"
+if ENV.include? "CODECOV_TOKEN"
+  require "codecov"
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 else
-  require 'simplecov-cobertura'
+  require "simplecov-cobertura"
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 SimpleCov.start

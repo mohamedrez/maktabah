@@ -72,10 +72,10 @@ end
 
 group :test do
   gem "capybara"
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
   gem "rspec_junit_formatter"
-  gem 'simplecov-cobertura', require: false
-  gem 'codecov'
+  gem "simplecov-cobertura", require: false
+  gem "codecov"
 end
 
 group :development do
