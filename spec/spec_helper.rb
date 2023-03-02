@@ -20,6 +20,8 @@ require 'simplecov'
 if ENV.include? 'CODECOV_TOKEN'
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
+else
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 SimpleCov.start
 RSpec.configure do |config|
