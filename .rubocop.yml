@@ -9,3 +9,4 @@ AllCops:
     - 'db/**/*'
     - 'bin/**/*'
     - 'spec/**/*'
+    - 'vendor/bundle/**/*'
