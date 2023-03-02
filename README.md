@@ -1,4 +1,5 @@
 # README
+[![codecov](https://codecov.io/gh/mohamedrez/maktabah/branch/main/graph/badge.svg?token=V47OL6F79L)](https://codecov.io/gh/mohamedrez/maktabah)
 
 after you clone the project run this commands:
 
