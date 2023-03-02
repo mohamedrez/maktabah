@@ -1,6 +1,6 @@
 const updateStatus = document.querySelector('#update-status');
 updateStatus.innerHTML = ("
-  <% unless @user_progress.completed? %>
+  <% unless @up_status == "completed"%>
     <%= button_to 'Mark complete', course_update_step_status_path, method: :patch %>
   <% else %>
     <%= button_to 'Lesson Completed', course_update_step_status_path, method: :patch %>

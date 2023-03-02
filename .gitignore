@@ -39,3 +39,5 @@
 
 .idea
 .vscode
+/coverage
+rspec.xml

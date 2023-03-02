@@ -3,9 +3,10 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      @last_step = UserProgressHistory.get_last_step(current_user)
-      @last_course = UserProgressHistory.get_last_course(current_user)
-      @complete_courses = UserProgress.where(user: current_user, progressable_type: "Course")
+      @active_step = Home.active_step(current_user)
+      @active_course = Home.active_course(current_user)
+      @in_progress = Home.in_progress(current_user)
+      @completed_courses = Home.completed_courses(current_user)
     end
   end
 end

@@ -21,5 +21,9 @@ services:
       DB_PASSWORD: password
       DB_HOST: db
       DB_SOCKET: ''
+      GMAIL_USERNAME: 's'
+      GMAIL_PASSWORD: 's'
+      DELIVERY_METHOD: test
+      # CODECOV_TOKEN: ${CODECOV_TOKEN}
     depends_on:
       - db

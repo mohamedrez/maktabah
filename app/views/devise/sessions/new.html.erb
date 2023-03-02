@@ -3,7 +3,7 @@
     <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Sign in to your account</h2>
     <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
       Or
-      <a class="font-medium text-gold-600 hover:text-gold-500" href="/sign_up">sign up for a new account</a>
+      <a class="font-medium text-gold-600 hover:text-gold-500" href="<%= url_for(new_registration_url(resource_name)) %>">sign up for a new account</a>
     </p>
   </div>
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -34,6 +34,9 @@
               <div class="text-sm">
                 <a class="font-medium text-gray-600 underline dark:text-gray-300" href="/users/password_reset/new">Forgot your password?</a>
               </div>
+            </div>
+            <div class="text-sm" style="text-align: right;">
+              <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:  "font-medium text-gray-600 underline dark:text-gray-300"%>
             </div>
             <div>
               <%= f.submit "Log in", class: "button button--primary w-full py-2 px-4 text-sm" %>
