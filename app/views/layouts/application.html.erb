@@ -92,8 +92,7 @@
                       </svg>
                       Settings
                     </a>
-                  </li>
-                  
+                  </li> 
                   <li>
                     <a id="theme-toggle" class="text-gray-700 group flex items-center text-sm dark:text-gray-300 py-2 px-3" href="#">
                       <svg id="theme-toggle-dark-icon" class="hidden mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -101,6 +100,7 @@
                       Switch mode
                     </a>
                   </li>
+                  <li><%= render "layouts/switch_lang" %></li>
                 </ul>
                 <div class="py-2">
                   <a class="text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm" href="#">
@@ -112,9 +112,6 @@
                   </a>
                 </div>
               </div>
-            </div>
-            <div class="hidden md:ml-6 md:flex sm:items-center">
-              <%= render "layouts/switch_lang" %>
             </div>
           </div>
           <div class="-mr-2 flex items-center md:hidden">
