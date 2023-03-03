@@ -23,9 +23,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to @course, notice: "Great! The Course has been created!"
+      redirect_to @course, notice: t(".course_been_created")
     else
-      flash.now[:alert] = "Fix your mistakes, please."
+      flash.now[:alert] = t(".fix_your_mistakes")
       render :new, status: :unprocessable_entity
     end
   end

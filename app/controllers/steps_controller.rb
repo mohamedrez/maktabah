@@ -47,9 +47,9 @@ class StepsController < ApplicationController
     end
 
     if @step.save
-      redirect_to course_step_url(@course, @step), notice: "Great! The Step has been created!"
+      redirect_to course_step_url(@course, @step), notice: t(".step_been_created")
     else
-      flash.now[:alert] = "Fix your mistakes, please."
+      flash.now[:alert] = t(".fix_your_mistakes")
       render :new, status: :unprocessable_entity
     end
   end
