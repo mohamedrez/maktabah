@@ -13,7 +13,6 @@
 #
 class Course < ApplicationRecord
   belongs_to :track
-  has_and_belongs_to_many :profiles
   has_rich_text :description
   validates :name, :position, presence: true
   validates :position, uniqueness: true

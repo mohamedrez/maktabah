@@ -12,8 +12,6 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     # root "articles#index"
     resources :tracks, only: [:show, :index]
-    resources :profiles, only: [:show, :edit]
-    patch "/profiles/:id", to: "profiles#update", as: "update_profile"
     resources :courses do
       resources :steps, only: [:index, :show, :new, :create]
       patch "/steps/:id", to: "steps#update_status", as: "update_step_status"
