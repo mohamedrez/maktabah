@@ -18,6 +18,6 @@ class Lecture < ApplicationRecord
   has_one_attached :audio_file
 
   def get_my_asset
-    youtube_embed(youtube_video_link)
+    youtube_id(youtube_video_link)
   end
 end
