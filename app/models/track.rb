@@ -12,7 +12,7 @@
 #
 class Track < ApplicationRecord
   has_rich_text :description
-  has_many :courses, -> { order(position: :asc) }
+  has_many :courses, -> { order(position: :asc) }, inverse_of: :track, dependent: :destroy
 
   delegate :count, to: :courses, prefix: true
 end
