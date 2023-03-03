@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @progress_hash = {}
     return unless current_user
-    @progress_hash = @course.get_work_done(current_user)
+    @progress_hash = @course.get_steps_status(current_user)
   end
 
   def new
