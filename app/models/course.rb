@@ -13,7 +13,6 @@
 #
 class Course < ApplicationRecord
   belongs_to :track
-  has_and_belongs_to_many :profiles
   has_rich_text :description
   validates :name, :position, presence: true
   validates :position, uniqueness: true
@@ -22,7 +21,7 @@ class Course < ApplicationRecord
   has_one :user_point, as: :scorable, dependent: :destroy
   delegate :count, to: :steps, prefix: true
 
-  def get_work_done(current_user)
+  def get_steps_status(current_user)
     progress_hash = {}
     up = UserProgress.where(user: current_user, progressable_type: "Step").pluck(:progressable_id, :status)
     s = steps.pluck(:id)

@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     @course = Course.find(params[:id])
     @progress_hash = {}
     return unless current_user
-    @progress_hash = @course.get_work_done(current_user)
+    @progress_hash = @course.get_steps_status(current_user)
   end
 
   def new
@@ -23,9 +23,9 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to @course, notice: "Great! The Course has been created!"
+      redirect_to @course, notice: t("flash.courses_controller.course_been_created")
     else
-      flash.now[:alert] = "Fix your mistakes, please."
+      flash.now[:alert] = t("flash.fix_your_mistakes")
       render :new, status: :unprocessable_entity
     end
   end

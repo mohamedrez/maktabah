@@ -12,5 +12,13 @@
 require "rails_helper"
 
 RSpec.describe(Lecture, type: :model) do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @lecture = FactoryBot.create(:lecture, youtube_video_link: "https://www.youtube.com/watch?v=cND5yDV1qJs&list=PLhMbosvUbsfHRGL8BvjFY92mtUvi8ZPnk&index=55&t=24s")
+  end
+
+  describe "#youtube_id" do
+    it "returns the id of youtube video" do
+      expect(@lecture.get_my_asset).to eql("cND5yDV1qJs")
+    end
+  end
 end
