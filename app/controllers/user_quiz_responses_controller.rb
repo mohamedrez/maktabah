@@ -7,7 +7,7 @@ class UserQuizResponsesController < ApplicationController
     @quiz = @step.stepable
     @course = @step.course
 
-    if @response.delete(" ") == @quiz.answer.delete("\n").delete(" ")
+    if JSON.parse(@response).to_json == JSON.parse(@quiz.answer).to_json
       if current_user
         UserQuizResponse.find_or_create_by!(user: current_user, quiz: @quiz).update!(response: @response)
         UserProgress.find_by(progressable: @step).completed! unless @user_progress.completed?
