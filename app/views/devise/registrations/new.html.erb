@@ -39,12 +39,12 @@
                 <input name="user[remember_me]" type="hidden" value="0" autocomplete="off"><input class="form-checkbox text-teal-700 focus:ring-teal-800 h-4 w-4 border-gray-300 rounded" type="checkbox" value="1" checked="checked" name="user[remember_me]" id="user_remember_me">
                 <label class="ml-2 block text-sm text-gray-900 mb-0 dark:text-gray-300" for="user_remember_me">Remember me</label>
               </div>
-              <div class="text-sm">
-                <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:  "font-medium text-gray-600 underline dark:text-gray-300"%>
-              </div>
+            </div>
+            <div class="text-sm">
+              <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class:  "font-medium text-gray-600 underline dark:text-gray-300"%>
             </div>
             <div>
-              <%= f.submit "Sign up", class: "button button--primary w-full py-2 px-4 text-sm" %>
+              <%= f.submit "Sign up", style: "background-color: rgb(15 118 110);", class: "button button--primary w-full py-2 px-4 text-sm" %>
             </div>
           </div>
         <% end %>
