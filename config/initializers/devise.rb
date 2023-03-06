@@ -6,19 +6,6 @@
 # breaking changes in upgrades (i.e., in the event that future versions of
 # Devise change the default values for those options).
 #
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
-
-  def skip_format?
-    %w[html turbo_stream */*].include? request_format.to_s
-  end
-end
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -27,17 +14,17 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9fa1ba7e6a32801bfb50fef4c2389dc044c988fa5dca9009ce3cb14e8124b8de74c1410e829776326eab486c4abf2ff8a435c94e795e2b734f72301fc34d71c5'
+  # config.secret_key = '36199d81ea4036b034836ea509376518a80b8d8f7c21b5fe4bca563f870f1534e1d2f868b23144455d1098b3fbc4bf5080215f838338dca86bd672321afebfc9'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = "TurboController"
+  # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = ENV.fetch("GMAIL_USERNAME")
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -139,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '568bb1e2aab9f69d5a6836fe21a5b9fe1cdbaa12e87d8d273db1564b1db8609fc47f7b449d6cfeac8749ba4a4603fe28ccfeec43c5cd716f055382568697384e'
+  # config.pepper = '49f20afcf6c458ff3e05b7db2be607a3b07a5b171218eb5557cc0dafe0f1ce573428cbd3a01398b9cfe976c6b16bfcc5ff3e1313e3828a3942833cd9f4a2ee8d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -269,14 +256,14 @@ Devise.setup do |config|
 
   # ==> Navigation configuration
   # Lists the formats that should be treated as navigational. Formats like
-  # :html, should redirect to the sign in page when the user does not have
+  # :html should redirect to the sign in page when the user does not have
   # access, but formats like :xml or :json, should return 401.
   #
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = ["*/*", :html, :turbo_stream]
+  # config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -294,9 +281,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
-  end
+
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
@@ -311,12 +296,14 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  # ==> Turbolinks configuration
-  # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
-  #
-  # ActiveSupport.on_load(:devise_failure_app) do
-  #   include Turbolinks::Controller
-  # end
+  # ==> Hotwire/Turbo configuration
+  # When using Devise with Hotwire/Turbo, the http status for error responses
+  # and some redirects must match the following. The default in Devise for existing
+  # apps is `200 OK` and `302 Found respectively`, but new apps are generated with
+  # these new defaults that match Hotwire/Turbo behavior.
+  # Note: These might become the new default in future versions of Devise.
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
 
   # ==> Configuration for :registerable
 
