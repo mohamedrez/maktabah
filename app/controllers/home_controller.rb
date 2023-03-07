@@ -13,13 +13,18 @@ class HomeController < ApplicationController
   private
 
   def active_step
-    up = UserProgress.where(user: current_user, progressable_type: "Step", status: :started).last!.progressable_id
-    Step.find(up)
+    up = UserProgress.where(user: current_user, progressable_type: "Step", status: :started)
+    if up.any?
+      Step.find(up.last!.progressable_id)
+    end
   end
 
   def active_course
-    up = UserProgress.where(user: current_user, progressable_type: "Course", status: :started).last!.progressable_id
-    Course.find(up)
+    up = UserProgress.where(user: current_user, progressable_type: "Course", status: :started)
+    if up.any?
+      up.last!.progressable_id
+      Course.find(up.last!.progressable_id)
+    end
   end
 
   def in_progress
