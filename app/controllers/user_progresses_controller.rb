@@ -3,18 +3,17 @@
 class UserProgressesController < ApplicationController
   before_action :authenticate_user!
 
-  def create
-    @user_progress = UserProgress.find_or_create_by(
-      user_id: current_user.id,
-      progressable_id: user_progress_params[:step_id],
-      progressable_type: "Step"
-    ).update!(status: user_progress_params[:status])
-    head(:no_content)
-  end
+  def update
+    step = Step.find(params[:step_id])
+    course = Course.find(step.id)
 
-  private
+    UserProgress.find_by(user: current_user, progressable: step).update_status
 
-  def user_progress_params
-    params.require(:user_progress).permit(:user_id, :step_id, :status)
+    UserPoint.score_me(current_user, step)
+
+    respond_to do |format|
+      format.html { redirect_to course_step_url(course, step) }
+      format.js { render "steps/update_status", locals: {step_id: step.id} }
+    end
   end
 end

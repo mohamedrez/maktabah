@@ -20,9 +20,9 @@
           <% if current_user %>
             <div id="update-status" class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
-                <%= button_to 'Mark complete', course_update_step_status_path, method: :patch, remote: true %>
+                <%= button_to 'Mark complete', user_progress_path(step_id: @step.id), method: :patch, remote: true %>
               <% else %>
-                <%= button_to 'Lesson Completed', course_update_step_status_path, method: :patch, remote: true %>
+                <%= button_to 'Lesson Completed', user_progress_path(step_id: @step.id), method: :patch, remote: true %>
               <% end %>
             </div>
           <% end %>
