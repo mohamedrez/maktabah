@@ -11,7 +11,10 @@ class UserQuizResponsesController < ApplicationController
       if current_user
         user_progress = UserProgress.find_by(progressable: step)
         UserQuizResponse.find_or_create_by!(user: current_user, quiz: quiz).update!(response: response)
-        user_progress.completed! unless user_progress.completed?
+        unless user_progress.completed?
+          user_progress.completed!
+          UserPoint.score_me(current_user, step)
+        end
       end
       flash[:notice] = t("flash.user_quiz_responses_controller.quiz_passed")
       render js: %(window.location.pathname='#{course_path(course)}')
