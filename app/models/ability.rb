@@ -5,10 +5,14 @@ class Ability
 
   def initialize(user)
     can :read, Course
+    can :read, Step
 
     return if user.blank?
+    can :update, UserProgress, user: user
 
     return unless user.admin?
     can :manage, Course
+    can :manage, Step
+    can :manage, UserProgress
   end
 end
