@@ -15,12 +15,6 @@ class Ability
     can :update, UserProgress, user: user
 
     return unless user.admin?
-    can :manage, Track
-    can :manage, Course
-    can :manage, Step
-    can :manage, UserProgress
-    can :manage, UserQuizResponse
-    can :manage, :home
-    can :manage, :dashboard
+    can :manage, :all
   end
 end
