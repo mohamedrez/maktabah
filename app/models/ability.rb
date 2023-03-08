@@ -7,6 +7,7 @@ class Ability
     can :read, Track
     can :read, Course
     can :read, Step
+    can :manage, UserQuizResponse
 
     return if user.blank?
     can :update, UserProgress, user: user

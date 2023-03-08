@@ -2,6 +2,7 @@
 
 class UserProgressesController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource
 
   def update
     step = Step.find(params[:step_id])

@@ -4,7 +4,7 @@ require "json"
 
 class StepsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  load_and_authorize_resource except: [:index, :show, :update_status]
+  authorize_resource
   before_action :set_course_step, only: [:show]
   before_action :set_course, only: [:new, :create]
 
