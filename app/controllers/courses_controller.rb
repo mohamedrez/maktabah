@@ -2,7 +2,7 @@
 
 class CoursesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  authorize_resource
+  authorize_resource 
 
   def index
     @track = Track.find(params[:track_id])

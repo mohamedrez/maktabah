@@ -8,13 +8,19 @@ class Ability
     can :read, Course
     can :read, Step
     can :create, UserQuizResponse
+    can :read, :home
+    can :read, :dashboard
 
     return if user.blank?
     can :update, UserProgress, user: user
 
     return unless user.admin?
+    can :manage, Track
     can :manage, Course
     can :manage, Step
     can :manage, UserProgress
+    can :manage, UserQuizResponse
+    can :manage, :home
+    can :manage, :dashboard
   end
 end
