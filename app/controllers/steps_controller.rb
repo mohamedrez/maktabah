@@ -19,6 +19,7 @@ class StepsController < ApplicationController
 
     if current_user
       @up_status = @step.up_status current_user
+      @user_progress = UserProgress.find_by!(user: current_user, progressable: @step)
     end
   end
 
