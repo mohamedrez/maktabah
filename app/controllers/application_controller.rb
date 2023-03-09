@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || dashboard_index_path
+    stored_location_for(resource) || home_index_path
   end
 
   private
