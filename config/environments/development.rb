@@ -72,24 +72,24 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
-  config.action_mailer.delivery_method = ENV.fetch("DELIVERY_METHOD", :smtp).to_sym
-  config.action_mailer.smtp_settings = {
-    address: ENV.fetch("SMTP_SERVER", "none"),
-    port: ENV.fetch("SMTP_PORT", "none"),
-    domain: "localhost",
-    user_name: ENV.fetch("EMAIL_USERNAME", "none"),
-    password: ENV.fetch("EMAIL_PASSWORD", "none"),
-    authentication: "plain",
-    enable_starttls_auto: true,
-    open_timeout: 5,
-    read_timeout: 5
-  }
+  # config.action_mailer.delivery_method = ENV.fetch("DELIVERY_METHOD", :smtp).to_sym
+  # config.action_mailer.smtp_settings = {
+  #   address: ENV.fetch("SMTP_SERVER", "none"),
+  #   port: ENV.fetch("SMTP_PORT", "none"),
+  #   domain: "localhost",
+  #   user_name: ENV.fetch("EMAIL_USERNAME", "none"),
+  #   password: ENV.fetch("EMAIL_PASSWORD", "none"),
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   open_timeout: 5,
+  #   read_timeout: 5
+  # }
 
-  # Rails.application.configure do
-  #   config.action_mailer.perform_deliveries = true
-  #   config.action_mailer.smtp_settings = {
-  #     address: ENV.fetch("SMTP_SERVER", "none"),
-  #     port: ENV.fetch("SMTP_PORT", "none")
-  #   }
-  # end
+  Rails.application.configure do
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = {
+      address: ENV.fetch("SMTP_SERVER", "none"),
+      port: ENV.fetch("SMTP_PORT", "none")
+    }
+  end
 end
