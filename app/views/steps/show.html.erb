@@ -16,18 +16,16 @@
         <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
           <a class="button button--secondary font-medium" href="<%= url_for(course_url(@course)) %>">
             <i class="pr-2 text-lg far fa-map"></i>View Course
-          </a>
-          
-          <% if current_user %>
+          </a>        
+          <% if can? :update, @user_progress %>
             <div id="update-status" class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
-                <%= button_to 'Mark complete', course_update_step_status_path, method: :patch, remote: true %>
+                <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
               <% else %>
-                <%= button_to 'Lesson Completed', course_update_step_status_path, method: :patch, remote: true %>
+                <%= button_to 'Lesson Completed', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
               <% end %>
             </div>
           <% end %>
-
           <% if @index_plus_one < @course.steps_count %>
             <a class="button button--secondary font-medium" href="<%= url_for(course_step_url(@course, @step.next_step)) %>">
               <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Step

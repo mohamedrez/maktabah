@@ -13,9 +13,8 @@ Rails.application.routes.draw do
     resources :tracks, only: [:show, :index]
     resources :courses do
       resources :steps, only: [:index, :show, :new, :create]
-      patch "/steps/:id", to: "steps#update_status", as: "update_step_status"
     end
     post "/user_quiz_responses", to: "user_quiz_responses#create"
-    resources :user_progresses, only: [:create, :update]
+    resources :user_progresses, only: [:update]
   end
 end

@@ -37,6 +37,6 @@ class UserProgress < ApplicationRecord
     )
     return if user_progresses.count != step_ids.count
     course.user_progresses.first_or_create!(user_id: user_id).update!(status: :completed)
-    # UserPoint.score_me(current_user, course)
+    UserPoint.score_me(user, course)
   end
 end

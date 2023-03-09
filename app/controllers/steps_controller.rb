@@ -3,9 +3,9 @@
 require "json"
 
 class StepsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update_status]
-  load_and_authorize_resource except: [:index, :show, :update_status]
-  before_action :set_course_step, only: [:show, :update_status]
+  before_action :authenticate_user!, only: [:new, :create]
+  authorize_resource
+  before_action :set_course_step, only: [:show]
   before_action :set_course, only: [:new, :create]
 
   def index
@@ -19,16 +19,7 @@ class StepsController < ApplicationController
 
     if current_user
       @up_status = @step.up_status current_user
-    end
-  end
-
-  def update_status
-    UserProgress.find_by(progressable: @step).update_status
-    UserPoint.score_me(current_user, @step)
-
-    respond_to do |format|
-      format.html { redirect_to course_step_url(@course, @step) }
-      format.js { render :update_status }
+      @user_progress = UserProgress.find_by!(user: current_user, progressable: @step)
     end
   end
 

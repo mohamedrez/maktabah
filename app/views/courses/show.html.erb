@@ -42,11 +42,9 @@
   </div>
 </div>
 
-<% if current_user %>
-  <% if can? :manage, :all %>
-    <div class="bg-gray-50 px-4 py-3 text-center sm:px-6">
-      <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary", style: "margin: 0px 30px;" %>
-      <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary", style: "margin: 0px 30px;" %>
-    </div>
-  <% end %>
+<% if can? :manage, @course %>
+  <div class="bg-gray-50 px-4 py-3 text-center sm:px-6">
+    <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary", style: "margin: 0px 30px;" %>
+    <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary", style: "margin: 0px 30px;" %>
+  </div>
 <% end %>
