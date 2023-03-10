@@ -84,4 +84,12 @@ Rails.application.configure do
     open_timeout: 5,
     read_timeout: 5
   }
+
+  # Rails.application.configure do
+  #   config.action_mailer.perform_deliveries = true
+  #   config.action_mailer.smtp_settings = {
+  #     address: ENV.fetch("SMTP_SERVER", "none"),
+  #     port: ENV.fetch("SMTP_PORT", "none")
+  #   }
+  # end
 end
