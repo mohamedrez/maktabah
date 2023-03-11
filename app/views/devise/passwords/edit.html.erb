@@ -1,37 +1,38 @@
 <div class="page-container">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
-    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Change your password</h2>
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-700 dark:text-gray-200">Reset the password</h2>
   </div>
-  <div class="mt-8 space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <%= f.hidden_field :reset_password_token %>
-      <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
-        <div class="p-8 ">
-          <div class="grid grid-cols-6 gap-6 grid-flow-row">
-            <div class="col-span-6 sm:col-span-4">
-              <%= f.label :password, "New password", class: "block text-sm font-medium text-gray-700 dark:text-gray-200 "%> 
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-              <% end %>
-              <div class="mt-1 relative rounded-md shadow-sm">
-                <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+      <div class="p-8 ">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="space-y-6">
+              <div class="col-span-6 sm:col-span-4">
+                <%= f.label :password, "New password", class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %> 
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <div class="mt-1 relative rounded-md shadow-sm">
+                  <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input border-red-400 text-red-600 placeholder-red-300 focus:ring-red-500 focus:border-red-500" %>
+                </div>
+                <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
               </div>
-              <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-            </div>
-            <div class="col-span-6 sm:col-span-4">
-              <%= f.label :password_confirmation, "New password confirmation", class: "block text-sm font-medium text-gray-700 dark:text-gray-200 "%> 
-              <div class="mt-1 relative rounded-md shadow-sm">
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
+              <div class="col-span-6 sm:col-span-4">
+                <%= f.label :password_confirmation, "New password confirmation", class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %> 
+                <div class="mt-1 relative rounded-md shadow-sm">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input border-red-400 text-red-600 placeholder-red-300 focus:ring-red-500 focus:border-red-500" %>
+                </div>
+                <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
               </div>
-              <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
+            <div>
+              <%= f.submit "Reset the password", style: "background-color: rgb(15 118 110);", class: "button button--primary w-full py-2 px-4 text-sm" %>
             </div>
           </div>
-        </div>
-        <div class="p-8 pt-0 px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40">
-          <%= f.submit "Save", class: "button button--primary py-2 px-4"%>
-        </div>
+        <% end %>
       </div>
-    <% end %> 
+    </div>
   </div>
 </div>
