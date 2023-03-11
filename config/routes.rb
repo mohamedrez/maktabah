@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user.admin? } do
     mount Motor::Admin => "/motor_admin"
   end
+
   scope "(:locale)", locale: /en|ar/ do
     resources :home, only: [:index]
     resources :dashboard, only: [:index]
     devise_for :users
+    get "users/profile/edit", to: "profiles#edit"
+    patch "users/profile", to: "profiles#update"
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Defines the root path route ("/")

@@ -1,0 +1,97 @@
+
+  <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
+    <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
+      <nav class="space-y-1">
+    <a class="bg-gray-200 text-gray-900 dark:bg-gray-700/50 dark:text-gray-300 group rounded-md px-3 py-2 flex items-center text-sm font-medium" href="/users/profile/edit">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500 group-hover:text-gray-700 dark:text-gray-300 dark:group-hover:text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6" role="img" aria-labelledby="ab2kik8tmojy2n0qeid1w90apsdluvb1"><title id="ab2kik8tmojy2n0qeid1w90apsdluvb1">Profile icon</title>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
+</svg>
+
+  <span class="truncate"> Profile </span>
+</a>
+    <a class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:hover:bg-gray-600/70 dark:hover:text-gray-300 dark:text-gray-400 group rounded-md px-3 py-2 flex items-center text-sm font-medium" href="/users/edit">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6" role="img" aria-labelledby="ack6ppb0ma7u89tch673cv7qitmzi8n1"><title id="ack6ppb0ma7u89tch673cv7qitmzi8n1">Password icon</title>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path>
+</svg>
+
+  <span class="truncate"> Password </span>
+</a>
+</nav>
+    </aside>
+
+    <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+
+      <form data-controller="form-validation" data-action="submit->form-validation#validateAll" action="/users/profile" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" autocomplete="off"><input type="hidden" name="authenticity_token" value="p8ib0IBiqJBie8AnWMIBNPcpLuB8WfvYznME_oO8ITAZ2uoFqfaGor__ViLdpwSCqbOZwmjUM4EJiGQ0YMBtyA" autocomplete="off">
+        <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+  <div class="p-8 pb-0 ">
+                <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Profile</h3>
+              <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Profile information will be displayed on your dashboard.</p>
+
+ </div>
+
+  <div class="p-8 ">
+              <div class="grid grid-cols-6 gap-6">
+
+              <div class="col-span-6 sm:col-span-3">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_username">Username</label>
+                <div class="mt-1 relative rounded-md shadow-sm"><input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" data-test-id="username-field" data-attr="form-validation.username" data-action="blur->form-validation#validate" type="text" value="it's A&amp;L" name="user[username]" id="user_username"></div><div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_email">Email</label>
+                <div class="mt-1 relative rounded-md shadow-sm"><input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" data-test-id="email-field" data-attr="form-validation.email" data-action="blur->form-validation#validate" type="email" value="ayoub003lkebch@gmail.com" name="user[email]" id="user_email"></div><div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
+              </div>
+
+              <div class="col-span-6 sm:col-span-6">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_learning_goal">Learning goal</label>
+                <div class="mt-1 relative rounded-md shadow-sm"><textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="I wanna be the very best..." rows="4" data-test-id="learning-goal-field" name="user[learning_goal]" id="user_learning_goal"></textarea></div><div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
+              </div>
+
+              <div class="col-span-6">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_avatar">Avatar</label>
+                <div class="flex items-center">
+                    <img class="w-16 rounded-full shadow-inner" alt="user avatar" src="https://lh3.googleusercontent.com/a/AGNmyxYtLg0Et9ynBdrmfuczsS_ybOtBxcEYgCgPKZsQjA=s96-c">
+
+                </div>
+                  <p class="text-sm text-gray-500 mt-2 dark:text-gray-400">Avatar can be grabbed from Github or Google when signing in with those services.</p>
+              </div>
+            </div>
+
+</div>
+
+  <div class="p-8 pt-0 px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40">
+              <input type="submit" name="commit" value="Save" class="button button--primary py-2 px-4" data-test-id="save-profile-btn">
+
+</div>
+
+</div>
+</form>
+      <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+  <div class="p-8 pb-0 ">
+            <h3 class="text-xl leading-6 font-medium text-gray-900 dark:text-gray-200">Danger Zone</h3>
+            <p class="text-sm mt-2 text-gray-500 dark:text-gray-400">Careful, these actions can not be undone.</p>
+
+ </div>
+
+  <div class="p-8 ">
+            <div class="inline-flex flex-col space-y-5">
+            <a class="button button--clear px-3 py-2 text-sm" data-confirm="Are you sure?" data-test-id="user-reset-progress-link" rel="nofollow" data-method="delete" href="/users/progress/934128">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 -ml-0.5 mr-2 h-4 w-4 text-red-700 dark:text-red-500" role="img" aria-labelledby="af5bugjrxa3v01pno7tusbpprcnh3i1b"><title id="af5bugjrxa3v01pno7tusbpprcnh3i1b">Reset icon</title>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+</svg>
+
+              Reset progress
+</a>            <a class="button button--clear px-3 py-2 text-sm" data-confirm="Are you sure?" data-test-id="user-account-delete-link" rel="nofollow" data-method="delete" href="/users">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 -ml-0.5 mr-2 h-4 w-4 text-red-700 dark:text-red-500" role="img" aria-labelledby="a6xowveykh2o2gaj0x1y01c1e8pbt05m"><title id="a6xowveykh2o2gaj0x1y01c1e8pbt05m">Trash can icon</title>
+  <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
+</svg>
+
+              Delete account
+</a>          </div>
+
+</div>
+
+  
+</div>
+    </div>
+  </div>
