@@ -97,13 +97,13 @@
               <li><%= render "layouts/switch_lang" %></li>
             </ul>
             <div class="py-2">
-              <a class="text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm" href="#">
+              <%= link_to destroy_user_session_path, class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { "turbo-method": :delete } do %>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400" role="img" aria-labelledby="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">
                   <title id="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">Sign out icon</title>
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path>
                 </svg>
                 Sign out
-              </a>
+              <% end %>
             </div>
           </div>
         </div>
