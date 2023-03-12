@@ -25,4 +25,6 @@ class User < ApplicationRecord
     :rememberable,
     :validatable,
     :confirmable
+
+  has_one_attached :avatar
 end
