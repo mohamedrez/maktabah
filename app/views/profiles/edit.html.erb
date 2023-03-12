@@ -49,12 +49,16 @@
               <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
             </div>
 
-            <div class="col-span-6">
-              <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="user_avatar">Avatar</label>
-              <div class="flex items-center">
-                <img class="w-16 rounded-full shadow-inner" alt="user avatar" src="https://lh3.googleusercontent.com/a/AGNmyxYtLg0Et9ynBdrmfuczsS_ybOtBxcEYgCgPKZsQjA=s96-c">
+            <div class="col-span-6">            
+              <%= form.label :avatar, class: "mr-5 mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+              <%= form.file_field :avatar, class: "text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400", accept: 'image/svg,image/png,image/jpg,image/jpeg' %>
+              <div class="flex items-center mt-4">
+                <% if current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar, class: "w-16 h-16 rounded-full shadow-inner", alt: "user avatar" %>
+                <% else %>
+                  <img class="w-16 h-16 rounded-full shadow-inner" alt="user avatar" src="https://cdn-icons-png.flaticon.com/512/9995/9995827.png">
+                <% end %>
               </div>
-              <p class="text-sm text-gray-500 mt-2 dark:text-gray-400">Avatar can be grabbed from Github or Google when signing in with those services.</p>
             </div>
           </div>
         </div>
