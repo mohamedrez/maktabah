@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to users_profile_edit_path, notice: "Your account has been updated"
+      redirect_to users_profile_edit_path, notice: t("flash.profiles_controller.account_been_updated")
     else
       render :edit
     end

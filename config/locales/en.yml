@@ -13,3 +13,5 @@ en:
     user_quiz_responses_controller: 
       quiz_passed: "The quiz is passed."
       quiz_did_not_passed: "The quiz didn't passed."
+    profiles_controller:
+      account_been_updated: "Your account has been updated"
