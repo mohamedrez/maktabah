@@ -67,7 +67,7 @@
                 <% if current_user && current_user&.avatar.attached? %>
                   <%= image_tag current_user.avatar, class: "w-8 h-8 rounded-full", alt: "user avatar" %>
                 <% else %>
-                  <img class="w-8 h-8 rounded-full" alt="user avatar" src="https://cdn-icons-png.flaticon.com/512/9995/9995827.png">
+                  <img class="w-8 h-8 rounded-full" alt="user avatar" src="/assets/users/user.png">
                 <% end %>
             </button>
           </div>
