@@ -27,4 +27,5 @@ class User < ApplicationRecord
     :confirmable
 
   has_one_attached :avatar
+  has_many :notifications, as: :recipient, dependent: :destroy
 end

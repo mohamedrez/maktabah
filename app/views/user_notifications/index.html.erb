@@ -1,0 +1,3 @@
+<% @user_notifications.each do |n| %>
+  <%= time_ago_in_words n.created_at %>
+<% end %>
