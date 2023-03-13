@@ -13,6 +13,7 @@ class Ability
 
     return if user.blank?
     can :update, UserProgress, user: user
+    can :update, :profile
 
     return unless user.admin?
     can :manage, :all
