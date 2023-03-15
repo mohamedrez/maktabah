@@ -8,8 +8,8 @@ RSpec.describe 'visiting the edit profile page', type: :feature do
     login_as user
 
     visit users_profile_edit_url
-    fill_in "user[username]", with: "hi42"
-    fill_in "user[learning_goal]", with: "I wanna become a full stack RoR"
+    fill_in "Username", with: "hi42"
+    fill_in "Learning goal", with: "I wanna become a full stack RoR"
 
     click_button 'Save'
 
