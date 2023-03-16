@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+require "sidekiq/web"
+
 Rails.application.routes.draw do
-  authenticate :user, ->(user) { user.admin? } do
-    mount Motor::Admin => "/motor_admin"
-  end
+  # authenticate :user, ->(user) { user.admin? } do
+  # end
+  mount Motor::Admin => "/motor_admin"
+  mount Sidekiq::Web => "/sidekiq"
 
   scope "(:locale)", locale: /en|ar/ do
     resources :home, only: [:index]
