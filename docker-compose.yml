@@ -13,24 +13,24 @@ services:
       - .:/myapp
       - ./tmp/docker/node_modules:/myapp/node_modules
     tty: true
+    stdin_open: true
     ports:
       - "3000:3000"
     environment:
       RAILS_ENV: development
+      DB_SOCKET: ''
       DB_USER: root
       DB_PASSWORD: password
       DB_HOST: db
-      DB_SOCKET: ''
       GMAIL_USERNAME: 's'
       GMAIL_PASSWORD: 's'
-      DELIVERY_METHOD: test
+      DELIVERY_METHOD: smtp
       SMTP_SERVER: mailer
       SMTP_PORT: 1025
       REDIS_URL: redis://redis:6379
-
-      # CODECOV_TOKEN: ${CODECOV_TOKEN}
     depends_on:
       - db
+      - redis
   mailer:
     image: mailhog/mailhog:v1.0.1
     platform: linux/x86_64
@@ -56,7 +56,7 @@ services:
       DB_SOCKET: ''
       GMAIL_USERNAME: 's'
       GMAIL_PASSWORD: 's'
-      DELIVERY_METHOD: test
+      DELIVERY_METHOD: smtp
       SMTP_SERVER: mailer
       SMTP_PORT: 1025
       REDIS_URL: redis://redis:6379
