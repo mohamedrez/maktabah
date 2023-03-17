@@ -26,6 +26,10 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
+  config.assets.precompile += %w['.svg']
+  # Must include to get inline SVGs to work in deploy
+  config.assets.css_compressor = :sass
+
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
