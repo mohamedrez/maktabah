@@ -1,0 +1,23 @@
+<div class="mt-6">
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <p class="bg-white dark:bg-gray-800 px-2 text-gray-500 dark:text-gray-400">Or continue with</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 grid grid-cols-2 gap-3">
+        <div>
+          <%= button_to user_twitter_omniauth_authorize_path, data: {turbo: "false"}, class: "button button--clear w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0 dark:focus:ring-offset-gray-800" do %>
+            <span class="sr-only">Sign in with Twitter</span>
+            <%= image_tag 'icons/twitter.svg', class: "h-5 w-5" %>
+          <% end %>
+        </div>
+        <div>
+          <%= button_to user_google_oauth2_omniauth_authorize_path, data: {turbo: "false"}, class: "button button--clear w-full py-2 px-4 text-sm font-medium text-gray-500 focus:ring-0 dark:focus:ring-offset-gray-800" do %>
+            <span class="sr-only">Sign in with Google</span>
+            <%= image_tag 'icons/google.svg', class: "h-5 w-5" %>
+          <% end %>
+      </div>
