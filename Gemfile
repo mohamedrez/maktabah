@@ -59,6 +59,7 @@ gem "cancancan"
 gem "motor-admin"
 gem "omniauth"
 gem "omniauth-google-oauth2"
+gem "omniauth-twitter"
 gem "omniauth-rails_csrf_protection"
 
 group :development, :test do
