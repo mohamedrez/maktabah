@@ -54,11 +54,7 @@
                 <%= form.label :avatar, class: "mr-5 mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
                 <%= form.file_field :avatar, class: "text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400", accept: 'image/svg,image/png,image/jpg,image/jpeg' %>
                 <div class="flex items-center mt-4">
-                  <% if current_user.avatar.attached? %>
-                    <%= image_tag current_user.avatar, class: "w-16 h-16 rounded-full shadow-inner", alt: "user avatar" %>
-                  <% else %>
-                    <img class="w-16 h-16 rounded-full shadow-inner" alt="user avatar" src="/assets/users/user.png">
-                  <% end %>
+                  <%= render partial: "shared/user_avatar", locals: {class_avatar: "w-16 h-16 rounded-full"} %>
                 </div>
               </div>
             </div>

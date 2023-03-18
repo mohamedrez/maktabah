@@ -66,11 +66,7 @@
             <div>
               <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" data-dropdown-trigger="hover" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
                   <span class="sr-only">Open user menu</span>
-                  <% if current_user && current_user&.avatar.attached? %>
-                    <%= image_tag current_user.avatar, class: "w-8 h-8 rounded-full", alt: "user avatar" %>
-                  <% else %>
-                    <img class="w-8 h-8 rounded-full" alt="user avatar" src="/assets/users/user.png">
-                  <% end %>
+                  <%= render partial: "shared/user_avatar", locals: {class_avatar: "w-8 h-8 rounded-full"} %>
               </button>
             </div>
             <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
