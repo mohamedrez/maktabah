@@ -18,13 +18,13 @@
             <i class="pr-2 text-lg far fa-map"></i>View Course
           </a>        
           <% if can? :update, @user_progress %>
-            <div id="update-status" class="complete-button__text font-medium">
+            <turbo-frame id="<%= dom_id @step %>" class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
                 <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
               <% else %>
                 <%= button_to 'Lesson Completed', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
               <% end %>
-            </div>
+            </turbo-frame>
           <% end %>
           <% if @index_plus_one < @course.steps_count %>
             <a class="button button--secondary font-medium" href="<%= url_for(course_step_url(@course, @step.next_step)) %>">
