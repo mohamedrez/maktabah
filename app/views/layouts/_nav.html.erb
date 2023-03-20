@@ -24,70 +24,87 @@
           </a>
         </div>
       </div>
-      <div class="hidden md:ml-6 md:flex sm:items-center">
-        <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-          <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-dashboard" href="/dashboard">Dashboard</a>
-          <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium border-gold-500 text-gray-900" data-test-id="nav-all-paths" href="https://www.theodinproject.com/paths">All Paths</a>
-        </div>
-        <% if current_user %>
-          <turbo-frame id="notification_bell" src="/user_notifications/notification_bell">
-          </turbo-frame>
-        <% end %>
-        <div>
-          <% if current_user %>
-            <span style="margin: 0px 10px; font-weight: bold;">
-              <%= UserPoint.where(user: current_user).sum(:point) %>
-            </span>
-          <% end %>
-        </div>
-        <div class="ml-3 relative" data-controller="dropdown">
-          <div>
-            <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" data-dropdown-trigger="hover" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
-                <span class="sr-only">Open user menu</span>
-                <% if current_user && current_user&.avatar.attached? %>
-                  <%= image_tag current_user.avatar, class: "w-8 h-8 rounded-full", alt: "user avatar" %>
-                <% else %>
-                  <img class="w-8 h-8 rounded-full" alt="user avatar" src="/assets/users/user.png">
-                <% end %>
-            </button>
+      
+      <% if current_user %>
+        <div class="hidden md:ml-6 md:flex sm:items-center">
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-dashboard" href="/dashboard"><%= t 'navbar.dashboard' %></a>
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium border-gold-500 text-gray-900" data-test-id="nav-all-paths" href="https://www.theodinproject.com/paths"><%= t 'navbar.all_paths' %></a>
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-community" href="https://discord.gg/fbFCkYabZB"><%= t 'navbar.community' %></a>
           </div>
-          <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <a class="ml-3 bg-white dark:bg-gray-900 p-1 rounded-full text-gray-400 dark:text-gray-300 relative hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500" data-test-id="navbar-notification-icon" href="/notifications">
+            <span class="sr-only">View notifications</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" role="img" aria-labelledby="ah6btfr2mzu7s0hk1xgg9kjd9djma3x9" class="h-6 w-6">
+              <title id="ah6btfr2mzu7s0hk1xgg9kjd9djma3x9">Notifications icon</title>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+          </a>
+          <div>
             <% if current_user %>
-              <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                <div class="font-medium truncate"><%= current_user.email %></div>
-              </div>
+              <span style="margin: 0px 10px; font-weight: bold;">
+                <%= UserPoint.where(user: current_user).sum(:point) %>
+              </span>
             <% end %>
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
-              <li>
-                <a class="text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm " href="<%= url_for(users_profile_edit_url) %>">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" role="img" aria-labelledby="aemh64i22ar90qpbjoerwbq3pkgc4meu" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400">
-                    <title id="aemh64i22ar90qpbjoerwbq3pkgc4meu">settings icon</title>
-                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
-                  </svg>
-                  Settings
-                </a>
-              </li>
-              <li>
-                <a id="theme-toggle" class="text-gray-700 group flex items-center text-sm dark:text-gray-300 py-2 px-3" href="#">
-                  <svg id="theme-toggle-dark-icon" class="hidden mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                  <svg id="theme-toggle-light-icon" class="hidden mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                  Switch mode
-                </a>
-              </li>
-              <li><%= render "layouts/switch_lang" %></li>
-            </ul>
-            <div class="py-2">
-              <%= link_to destroy_user_session_path, class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { "turbo-method": :delete } do %>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400" role="img" aria-labelledby="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">
-                  <title id="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">Sign out icon</title>
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path>
-                </svg>
-                Sign out
+          </div>
+          <div class="ml-3 relative" data-controller="dropdown">
+            <div>
+              <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" data-dropdown-trigger="hover" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" type="button">
+                  <span class="sr-only">Open user menu</span>
+                  <%= render partial: "shared/user_avatar", locals: {class_avatar: "w-8 h-8 rounded-full"} %>
+              </button>
+            </div>
+            <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+              <% if current_user %>
+                <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                  <div class="font-medium truncate"><%= current_user.email %></div>
+                </div>
               <% end %>
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                <li>
+                  <a class="text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm " href="<%= url_for(users_profile_edit_url) %>">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" role="img" aria-labelledby="aemh64i22ar90qpbjoerwbq3pkgc4meu" class="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400">
+                      <title id="aemh64i22ar90qpbjoerwbq3pkgc4meu">settings icon</title>
+                      <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                    </svg>
+                    Settings
+                  </a>
+                </li> 
+                <li>
+                  <a id="theme-toggle" class="text-gray-700 group flex items-center text-sm dark:text-gray-300 py-2 px-3" href="#">
+                    <svg id="theme-toggle-dark-icon" class="hidden mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden mr-3 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    Switch mode
+                  </a>
+                </li>
+                <li><%= render "layouts/switch_lang" %></li>
+              </ul>
+              <div class="py-2">
+                <%= link_to destroy_user_session_path, class: 'text-gray-700 dark:text-gray-300 group flex items-center px-3 py-2 text-sm', data: { "turbo-method": :delete } do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-300 dark:group-hover:text-gray-400" role="img" aria-labelledby="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">
+                    <title id="a74fwij56bdcbi2p7aiwjxfa68y3uvyw">Sign out icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"></path>
+                  </svg>
+                  Sign out
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% else %>
+        <div class="hidden md:ml-6 md:flex sm:items-center">
+          <div class="hidden md:ml-6 md:flex sm:space-x-8">
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-all-paths" href="https://www.theodinproject.com/paths">All Paths</a>
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-about" href="/about">About</a>
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-community" href="https://discord.gg/fbFCkYabZB">Community</a>
+            <%= link_to "Sign in", new_user_session_path, class: "text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium"%>
+            <%= link_to "Get Started", new_user_registration_path, class:  "button button--primary md:px-2 md:py-2 lg:px-4 text-sm"%>
+            <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+        </div>
+      <% end %>
       <div class="-mr-2 flex items-center md:hidden">
         <button type="button" data-controller="custom-events" data-action="custom-events#emit" data-custom-events-event-name-value="openMobileMenu" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold-500" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only">Open mobile menu</span>

@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   mount Motor::Admin => "/motor_admin"
   mount Sidekiq::Web => "/sidekiq"
 
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+
   scope "(:locale)", locale: /en|ar/ do
     resources :home, only: [:index]
     resources :dashboard, only: [:index]
 
-    devise_for :users
+    devise_for :users, skip: :omniauth_callbacks
     delete "users", to: "devise/registrations#destroy", as: :destroy_user_registration
     get "users/profile/edit", to: "profiles#edit"
     patch "users/profile", to: "profiles#update"
