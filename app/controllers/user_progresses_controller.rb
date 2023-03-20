@@ -12,9 +12,6 @@ class UserProgressesController < ApplicationController
 
     UserPoint.score_me(current_user, step)
 
-    respond_to do |format|
-      format.html { redirect_to course_step_url(course, step) }
-      format.js { render "steps/update_status", locals: {course_id: course.id, step_id: step.id} }
-    end
+    redirect_to course_step_url(course, step)
   end
 end

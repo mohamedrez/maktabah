@@ -18,7 +18,7 @@
             <i class="pr-2 text-lg far fa-map"></i>View Course
           </a>        
           <% if can? :update, @user_progress %>
-            <div id="update-status" class="complete-button__text font-medium">
+            <div class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
                 <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
               <% else %>
