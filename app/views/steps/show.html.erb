@@ -20,9 +20,9 @@
           <% if can? :update, @user_progress %>
             <div class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
-                <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
+                <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch %>
               <% else %>
-                <%= button_to 'Lesson Completed', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch, remote: true %>
+                <%= button_to 'Lesson Completed', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch %>
               <% end %>
             </div>
           <% end %>
@@ -36,6 +36,3 @@
     </div>
   </div>
 </div>
-
-
-
