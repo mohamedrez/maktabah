@@ -17,8 +17,8 @@ require "rails_helper"
 
 RSpec.describe(Step, type: :model) do
   before do
-    @user1 = FactoryBot.create(:user, id: 1)
-    @user2 = FactoryBot.create(:user, id: 2)
+    @user1 = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
 
     @track = FactoryBot.create(:track)
 

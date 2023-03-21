@@ -20,7 +20,7 @@ jobs:
       - name: run migrations
         run: docker-compose run web  bundle exec rails db:migrate
       - name: rspec
-        run: docker-compose run web bundle exec rspec
+        run: docker-compose run web RAILS_ENV=test bundle exec rspec
       - name: logfiles
         run: ls -alrt coverage
       - name: Upload coverage reports to Codecov

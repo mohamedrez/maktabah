@@ -16,8 +16,8 @@ require "rails_helper"
 
 RSpec.describe(UserProgress, type: :model) do
   before do
-    @user = FactoryBot.create(:user, id: 1)
-    @user2 = FactoryBot.create(:user, id: 2)
+    @user = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
     @track = FactoryBot.create(:track)
     @course = FactoryBot.create(:course, track: @track)
     @lecture1 = FactoryBot.create(:lecture)
