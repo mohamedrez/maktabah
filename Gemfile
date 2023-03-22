@@ -94,3 +94,7 @@ group :development do
   gem "brakeman"
   gem "annotate"
 end
+
+gem "sidekiq", "~> 7.0"
+
+gem "noticed", "~> 1.6"

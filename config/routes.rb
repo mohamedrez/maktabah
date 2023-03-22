@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+require "sidekiq/web"
+
 Rails.application.routes.draw do
-  authenticate :user, ->(user) { user.admin? } do
-    mount Motor::Admin => "/motor_admin"
-  end
+  # authenticate :user, ->(user) { user.admin? } do
+  # end
+  mount Motor::Admin => "/motor_admin"
+  mount Sidekiq::Web => "/sidekiq"
 
   devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
@@ -19,12 +22,15 @@ Rails.application.routes.draw do
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Defines the root path route ("/")
-    # root "articles#index"
+    root "dashboard#index"
     resources :tracks, only: [:show, :index]
     resources :courses do
       resources :steps, only: [:index, :show, :new, :create]
     end
     post "/user_quiz_responses", to: "user_quiz_responses#create"
     resources :user_progresses, only: [:update]
+    resources :user_progresses, only: [:create, :update]
+    get "user_notifications", to: "user_notifications#index"
+    get "user_notifications/notification_bell", to: "user_notifications#notification_bell"
   end
 end

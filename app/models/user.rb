@@ -28,6 +28,7 @@ class User < ApplicationRecord
     :omniauthable, omniauth_providers: [:google_oauth2, :twitter]
 
   has_one_attached :avatar
+  has_many :notifications, as: :recipient, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe UserPoint, type: :model do
   before do
-    @user1 = FactoryBot.create(:user, id: 1)
+    @user1 = FactoryBot.create(:user)
 
     @track = FactoryBot.create(:track)
 
