@@ -9,7 +9,6 @@ class Ability
     can :read, Step
     can :create, UserQuizResponse
     can :read, :home
-    can :read, :dashboard
 
     return if user.blank?
     can :update, UserProgress, user: user

@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|ar/ do
     resources :home, only: [:index]
-    resources :dashboard, only: [:index]
 
     devise_for :users, skip: :omniauth_callbacks
     delete "users", to: "devise/registrations#destroy", as: :destroy_user_registration
