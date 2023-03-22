@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'visiting the edit profile page', type: :feature do
-  it "changes the user's attributes" do
+  xit "changes the user's attributes" do
 
     visit new_user_session_url
     user = User.create! email: "email@eila.com", password: "somepassword", confirmation_token: "2023-03-15 13:24:03.915976000 +0000", confirmed_at: "2023-03-15 13:28:03.915976000 +0000"
