@@ -49,7 +49,6 @@ services:
     volumes:
       - .:/myapp
     environment:
-      RAILS_ENV: development
       DB_USER: root
       DB_PASSWORD: password
       DB_HOST: db
