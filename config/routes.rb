@@ -15,10 +15,6 @@ Rails.application.routes.draw do
     get "users/profile/edit", to: "profiles#edit"
     patch "users/profile", to: "profiles#update"
 
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-    # Defines the root path route ("/")
-    # root "articles#index"
     resources :tracks, only: [:index]
     resources :courses do
       resources :steps, only: [:index, :show, :new, :create]
