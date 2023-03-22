@@ -14,6 +14,6 @@ RSpec.feature "User management", type: :feature do
     # fill_in "user_password", with: "somepassword"
     # click_button "Log in"
     # expect(page).to_not have_text("Invalid Email or password.")
-    # expect(page).to have_text("Dashboard")
+    # expect(page).to have_text("Home")
   end
 end

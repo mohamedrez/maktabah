@@ -28,9 +28,9 @@
       <% if current_user %>
         <div class="hidden md:ml-6 md:flex sm:items-center">
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-dashboard" href="/dashboard"><%= t 'navbar.dashboard' %></a>
-            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium border-gold-500 text-gray-900" data-test-id="nav-all-paths" href="https://www.theodinproject.com/paths"><%= t 'navbar.all_paths' %></a>
-            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " data-test-id="nav-community" href="https://discord.gg/fbFCkYabZB"><%= t 'navbar.community' %></a>
+            <%= link_to t('navbar.home'), home_index_path, class: " text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium" %>
+            <%= link_to t('navbar.all_paths'), tracks_path, class: " text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium border-gold-500 text-gray-900" %>
+            <a class=" text-sm border-transparent text-gray-500 dark:text-gray-300 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1  border-b-2 font-medium " href="https://discord.gg/fbFCkYabZB"><%= t 'navbar.community' %></a>
           </div>
           <a class="ml-3 bg-white dark:bg-gray-900 p-1 rounded-full text-gray-400 dark:text-gray-300 relative hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500" data-test-id="navbar-notification-icon" href="/notifications">
             <span class="sr-only">View notifications</span>

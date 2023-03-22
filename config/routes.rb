@@ -12,18 +12,13 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|ar/ do
     resources :home, only: [:index]
-    resources :dashboard, only: [:index]
 
     devise_for :users, skip: :omniauth_callbacks
     delete "users", to: "devise/registrations#destroy", as: :destroy_user_registration
     get "users/profile/edit", to: "profiles#edit"
     patch "users/profile", to: "profiles#update"
 
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-    # Defines the root path route ("/")
-    root "dashboard#index"
-    resources :tracks, only: [:show, :index]
+    resources :tracks, only: [:index]
     resources :courses do
       resources :steps, only: [:index, :show, :new, :create]
     end

@@ -1,6 +1,6 @@
 en:
   navbar:
-    dashboard: "Dashboard"
+    home: "Home"
     all_paths: "All Paths"
     community: "Community"
     switch_to: "Switch to arabic"
