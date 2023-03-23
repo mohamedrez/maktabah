@@ -2,7 +2,7 @@
   <div class="w-full">
     <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-neutral-600" onclick="changeAtiveTab(event,'tab-active')">
+        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-indigo-500" onclick="changeAtiveTab(event,'tab-active')">
           <i class="fas fa-space-shuttle text-base mr-1"></i>  Active
         </a>
       </li>
@@ -41,7 +41,7 @@
     tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
     for(let i = 0 ; i < aElements.length; i++){
       aElements[i].classList.remove("text-white");
-      aElements[i].classList.remove("bg-neutral-600");
+      aElements[i].classList.remove("bg-indigo-500");
       aElements[i].classList.add("text-neutral-600");
       aElements[i].classList.add("bg-white");
       tabContents[i].classList.add("hidden");
@@ -50,7 +50,7 @@
     element.classList.remove("text-neutral-600");
     element.classList.remove("bg-white");
     element.classList.add("text-white");
-    element.classList.add("bg-neutral-600");
+    element.classList.add("bg-indigo-500");
     document.getElementById(tabID).classList.remove("hidden");
     document.getElementById(tabID).classList.add("block");
   }
