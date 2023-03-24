@@ -22,10 +22,10 @@
         <%= render partial: "active", locals: {active_step: active_step, active_course: active_course} %>
       </div>
       <div class="hidden" id="tab-in-progress">
-        <%= render partial: "ip_or_cc", locals: {courses: in_progress} %>
+        <%= render partial: "list_courses", locals: {courses: in_progress} %>
       </div>
       <div class="hidden" id="tab-completed-courses">
-        <%= render partial: "ip_or_cc", locals: {courses: completed_courses} %>
+        <%= render partial: "list_courses", locals: {courses: completed_courses} %>
       </div>
     </div>
   </div>
