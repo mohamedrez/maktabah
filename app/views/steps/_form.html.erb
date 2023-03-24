@@ -1,4 +1,4 @@
-<form data-controller="form-validation" data-action="submit->form-validation#validateAll" action="/courses/<%= step.course_id %>/steps" accept-charset="UTF-8" method="post">
+<%= form_with url: "/courses/#{step.course_id}/steps" do |form| %>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
     <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
         <div class="p-8 ">
@@ -17,8 +17,8 @@
                     </div>
                     <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                 </div>
-                <% if stepable == 'lecture' %>
-                    <input type="hidden" name="stepable" value="lecture">
+                <% if stepable == 'lecture' && is == 'video' %>
+                    <input type="hidden" name="stepable" value="lecture_video">
                     <div class="col-span-6 sm:col-span-4">
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="youtube_video_link">Youtube Video Link</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
@@ -26,6 +26,20 @@
                         </div>
                         <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                     </div>
+                <% elsif stepable == 'lecture' && is == 'audio' %>
+                    <div class="col-span-4">       
+                        <input type="hidden" name="stepable" value="lecture_audio">
+                        <div class="flex items-center justify-center w-full">
+                            <label for="audio_file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <svg aria-hidden="true" class="w-10 h-10 mb-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Audio File</p>
+                                </div>
+                                <input id="audio_file" type="file" class="hidden" accept="audio/*" />
+                            </label>
+                        </div> 
+                    </div> 
                 <% else %>
                     <input type="hidden" name="stepable" value="quiz">
                     <div class="col-span-6 sm:col-span-6">
@@ -46,7 +60,7 @@
             </div>
         </div>
         <div class="p-8 pt-0 px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40">
-            <input type="submit" name="commit" value="Save" class="button button--primary py-2 px-4" data-test-id="save-profile-btn">
+            <%= submit_tag "Save", class: "button button--primary py-2 px-4" %>
         </div>
     </div>
-</form>
+<% end %>

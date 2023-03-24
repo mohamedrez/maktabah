@@ -26,14 +26,18 @@ class StepsController < ApplicationController
   def new
     @step = @course.steps.new
     @stepable = params[:stepable]
+    @is = params[:is]
   end
 
   def create
     @step = @course.steps.new(step_params)
 
-    @step.stepable = if params[:stepable] == "lecture"
+    @step.stepable = if params[:stepable] == "lecture_video"
       Lecture.create!(youtube_video_link: params[:youtube_video_link])
-    else
+    elsif params[:stepable] == "lecture_audio"
+      lecture = Lecture.new
+      lecture.audio_file = params[:audio_file]
+    elsif params[:stepable] == "quiz"
       Quiz.create!(surveyjs: params[:surveyjs], answer: params[:answer])
     end
 
