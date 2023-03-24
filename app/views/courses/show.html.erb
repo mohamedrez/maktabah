@@ -12,10 +12,11 @@
       <div class="flex justify-between items-center flex-shrink-1 group hover:bg-gray-100 dark:hover:bg-gray-700 px-2 rounded-lg transition ease-in-out  hover:transition-colors">
         <a class="grow py-3" href="<%= url_for(course_step_url(@course, step)) %>">
           <div class="flex items-center gap-3">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 w-6 dark:text-gray-500 text-gray-400 group-hover:text-gray-500 dark:group-hover:text-gray-400 shrink-0">
-              <title>Lesson</title>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"></path>
-            </svg>
+            <% if step.stepable_type == "Lecture" %>
+              <%= image_tag "icons/play.svg", class: "w-6" %>
+            <% else %>
+              <%= image_tag "icons/quiz.svg", class: "w-6" %>
+            <% end %>
             <p class="text-gray-800 dark:text-gray-300"><%= step.name %></p>
           </div>
         </a>
