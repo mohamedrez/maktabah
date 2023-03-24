@@ -15,7 +15,9 @@ class StepsController < ApplicationController
   def show
     @index_plus_one = @course.steps.index(@step) + 1
 
-    @my_asset = @step.stepable.get_my_asset
+    unless @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).audio_file.attached?
+      @my_asset = @step.stepable.get_my_asset
+    end
 
     if current_user
       @up_status = @step.up_status current_user
@@ -32,11 +34,12 @@ class StepsController < ApplicationController
   def create
     @step = @course.steps.new(step_params)
 
-    @step.stepable = if params[:stepable] == "lecture_video"
+    @step.stepable = if params[:stepable] == "lecture" && params[:is] == "video"
       Lecture.create!(youtube_video_link: params[:youtube_video_link])
-    elsif params[:stepable] == "lecture_audio"
+    elsif params[:stepable] == "lecture" && params[:is] == "audio"
       lecture = Lecture.new
       lecture.audio_file = params[:audio_file]
+      lecture
     elsif params[:stepable] == "quiz"
       Quiz.create!(surveyjs: params[:surveyjs], answer: params[:answer])
     end
