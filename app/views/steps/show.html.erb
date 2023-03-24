@@ -2,13 +2,12 @@
 <% if @step.stepable_type == "Lecture" %>
     <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @my_asset %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
 <% else %>
-    <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
-    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", "id": "helper", "data-surveyjs": @my_asset, defer: true %>
-    <div id="surveyContainer"></div>
+  <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
+  <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", "id": "helper", "data-surveyjs": @my_asset, defer: true %>
+  <div id="surveyContainer"></div>
 <% end %>
-
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
   <div class="page-container">
     <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">

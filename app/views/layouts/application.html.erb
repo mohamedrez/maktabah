@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js" defer></script>
-
     <script>
       if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
@@ -18,7 +16,7 @@
       }
     </script>
   </head>
-
+  
   <body dir=<%= direction %> class="h-full bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
     <%= render partial: "layouts/nav" %>
     <div class="page-container">
@@ -31,10 +29,8 @@
       <% if alert %>
         <p class="alert bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"><%= alert %></p>
       <% end %>
-
       <%= yield %>
     </div>
-
     <script>
       var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
       var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
