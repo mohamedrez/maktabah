@@ -14,8 +14,9 @@ require_relative "../../lib/helpers/lecture_helper"
 class Lecture < ApplicationRecord
   include LectureHelper
 
-  has_one :step, as: :stepable, dependent: :destroy
-  has_one_attached :audio_file
+  has_one :step, as: :stepable, dependent: :destroy, inverse_of: :stepable
+  accepts_nested_attributes_for :step
+  has_one_attached :audio_file, dependent: :destroy
 
   def get_my_asset
     youtube_id(youtube_video_link)

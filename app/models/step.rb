@@ -15,7 +15,7 @@
 #
 class Step < ApplicationRecord
   belongs_to :course
-  belongs_to :stepable, polymorphic: true
+  belongs_to :stepable, polymorphic: true, inverse_of: :step
   has_one :user_point, as: :scorable, dependent: :destroy
   has_many :user_progresses, as: :progressable, dependent: :destroy
 

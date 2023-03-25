@@ -1,8 +1,8 @@
 <p><strong><%= @step.name %></strong></p>
-<% if @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).audio_file.attached? %>
-  <%= audio_tag url_for(@step.audio_file), controls: true %>
-<% elsif @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).youtube_video_link.present? %>
+<% if @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).youtube_video_link.present? %>
   <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @my_asset %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
+<% elsif @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).audio_file.attached? %>
+  <%= audio_tag url_for(@step.audio_file), controls: true %>
 <% elsif @step.stepable_type == "Quiz" %>
   <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
   <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>

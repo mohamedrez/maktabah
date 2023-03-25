@@ -27,7 +27,7 @@ class User < ApplicationRecord
     :confirmable,
     :omniauthable, omniauth_providers: [:google_oauth2, :twitter]
 
-  has_one_attached :avatar
+  has_one_attached :avatar, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
 
   def self.from_omniauth(auth)

@@ -34,16 +34,6 @@ class StepsController < ApplicationController
   def create
     @step = @course.steps.new(step_params)
 
-    @step.stepable = if params[:stepable] == "lecture" && params[:is] == "video"
-      Lecture.create!(youtube_video_link: params[:youtube_video_link])
-    elsif params[:stepable] == "lecture" && params[:is] == "audio"
-      lecture = Lecture.new
-      lecture.audio_file = params[:audio_file]
-      lecture
-    elsif params[:stepable] == "quiz"
-      Quiz.create!(surveyjs: params[:surveyjs], answer: params[:answer])
-    end
-
     if @step.save
       redirect_to course_step_url(@course, @step), notice: t("flash.steps_controller.step_been_created")
     else
@@ -55,7 +45,7 @@ class StepsController < ApplicationController
   private
 
   def step_params
-    params.require(:step).permit(:position, :name)
+    params.require(:step).permit(:position, :name, stepable_attributes: %i[youtube_video_link audio_file surveyjs answer])
   end
 
   def set_course_step

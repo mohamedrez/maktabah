@@ -9,7 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Quiz < ApplicationRecord
-  has_one :step, as: :stepable, dependent: :destroy
+  has_one :step, as: :stepable, dependent: :destroy, inverse_of: :stepable
+  accepts_nested_attributes_for :step
   has_many :user_quiz_responses, dependent: :destroy
 
   def get_my_asset
