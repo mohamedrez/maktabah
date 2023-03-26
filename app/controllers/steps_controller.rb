@@ -15,7 +15,7 @@ class StepsController < ApplicationController
   def show
     @index_plus_one = @course.steps.index(@step) + 1
 
-    unless @step.stepable_type == "Lecture" && Lecture.find(@step.stepable_id).audio_file.attached?
+    unless @step.which_type == "audio"
       @my_asset = @step.stepable.get_my_asset
     end
 

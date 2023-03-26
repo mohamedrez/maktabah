@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="256" height="256">
+    <g data-name="Layer 2" fill="#595bd4" class="color000 svgShape">
+        <path d="M17.52 6.42a3 3 0 0 0-3 0l0 0L9 9.85a1 1 0 0 1-.53.15H5a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3H8.43a1 1 0 0 1 .53.15l5.59 3.47A3 3 0 0 0 19 23V9A3 3 0 0 0 17.52 6.42zM22 21.46a1 1 0 0 1-.66-1.75 5 5 0 0 0 0-7.42 1 1 0 1 1 1.33-1.5 7 7 0 0 1 0 10.42A1 1 0 0 1 22 21.46z" fill="#595bd4" class="color000 svgShape"></path>
+        <path d="M25.55,25a1,1,0,0,1-.68-1.73,10,10,0,0,0,0-14.54,1,1,0,1,1,1.37-1.46,12,12,0,0,1,0,17.46A1,1,0,0,1,25.55,25Z" fill="#595bd4" class="color000 svgShape"></path>
+    </g>
+</svg>

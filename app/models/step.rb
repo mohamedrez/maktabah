@@ -15,13 +15,9 @@
 #
 class Step < ApplicationRecord
   belongs_to :course
-
   belongs_to :stepable, polymorphic: true
   has_one :user_point, as: :scorable, dependent: :destroy
   has_many :user_progresses, as: :progressable, dependent: :destroy
-
-  def build_stepable
-  end
 
   def next_step
     steps = Course.find(course_id).steps
@@ -39,5 +35,15 @@ class Step < ApplicationRecord
       UserProgress.find_or_create_by!(user: current_user, progressable: course, status: :started)
     end
     user_progress.status
+  end
+
+  def which_type
+    if stepable_type == "Lecture" && Lecture.find(stepable_id).youtube_video_link.present?
+      "video"
+    elsif stepable_type == "Lecture" && Lecture.find(stepable_id).audio_file.attached?
+      "audio"
+    elsif stepable_type == "Quiz"
+      "quiz"
+    end
   end
 end
