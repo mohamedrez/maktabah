@@ -24,11 +24,11 @@ RSpec.describe(Step, type: :model) do
 
     @course = FactoryBot.create(:course, track: @track)
 
-    @lecture1 = FactoryBot.create(:lecture)
-    @lecture2 = FactoryBot.create(:lecture)
+    @lecture = FactoryBot.create(:lecture, youtube_video_link: "https://www.youtube.com/watch?v=u8tagI3wlp4")
+    @quiz = FactoryBot.create(:quiz)
 
-    @step1 = FactoryBot.create(:step, course: @course, stepable: @lecture1, position: 0)
-    @step2 = FactoryBot.create(:step, course: @course, stepable: @lecture2, position: 1)
+    @step1 = FactoryBot.create(:step, course: @course, stepable: @lecture, position: 0)
+    @step2 = FactoryBot.create(:step, course: @course, stepable: @quiz, position: 1)
 
     @up1 = FactoryBot.create(:user_progress, status: :completed, progressable: @step1, user: @user2)
   end
@@ -55,6 +55,19 @@ RSpec.describe(Step, type: :model) do
     it "will returns started course" do
       @step1.up_status(@user1)
       expect(UserProgress.find_by!(user: @user1, progressable: @course).status).to eql("started")
+    end
+  end
+
+  describe "#which_type" do
+    it "returns a video bcs it's a lecture that has a video link" do
+      expect(@step1.which_type).to eql("video")
+    end
+
+    xit "returns an audio bcs it's a lecture that's attached to audio_file " do  
+    end
+
+    it "returns a quiz bcs it's a quiz" do
+      expect(@step2.which_type).to eql("quiz")
     end
   end
 end
