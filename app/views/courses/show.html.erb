@@ -44,8 +44,7 @@
 </div>
 <% if can? :manage, @course %>
   <div class="bg-zinc-200 px-4 py-3 text-center sm:px-6">
-    <%= link_to 'Add Step As Video', new_course_step_path(@course, stepable: "lecture", is: "video"), class: "button button--secondary", style: "margin: 0px 30px;" %>
-    <%= link_to 'Add Step As Audio', new_course_step_path(@course, stepable: "lecture", is: "audio"), class: "button button--secondary", style: "margin: 0px 30px;" %>
-    <%= link_to 'Add Step As Quiz', new_course_step_path(@course, stepable: "quiz", is: "quiz"), class: "button button--secondary", style: "margin: 0px 30px;" %>
+    <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary", style: "margin: 0px 30px;" %>
+    <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary", style: "margin: 0px 30px;" %>
   </div>
 <% end %>

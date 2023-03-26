@@ -15,9 +15,13 @@
 #
 class Step < ApplicationRecord
   belongs_to :course
-  belongs_to :stepable, polymorphic: true, inverse_of: :step
+
+  belongs_to :stepable, polymorphic: true
   has_one :user_point, as: :scorable, dependent: :destroy
   has_many :user_progresses, as: :progressable, dependent: :destroy
+
+  def build_stepable
+  end
 
   def next_step
     steps = Course.find(course_id).steps
@@ -25,8 +29,6 @@ class Step < ApplicationRecord
     return if index_plus_one >= steps.count
     steps[index_plus_one]
   end
-
-  # organization show action
 
   def up_status(current_user)
     user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: self)

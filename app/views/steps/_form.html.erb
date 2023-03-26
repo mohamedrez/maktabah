@@ -15,31 +15,26 @@
                         <%= form.text_field :name, class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
                     </div>
                 </div>
-                <%= form.fields_for :stepable do |stepable_form| %>
-                    <% if stepable == 'lecture' && is == 'video' %>
-                        <div class="col-span-6 sm:col-span-4">
-                            <%= stepable_form.label :youtube_video_link, class: "block text-sm font-medium text-gray-700 dark:text-gray-200" %>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <%= stepable_form.text_field :youtube_video_link, class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
-                            </div>
+                <% if stepable == 'lecture'%>
+                    <div class="col-span-6 sm:col-span-4">
+                        <input type="hidden" name="stepable" value="lecture">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200" for="youtube_video_link">Youtube Video Link</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" type="text" name="youtube_video_link" id="youtube_video_link">
                         </div>
-                    <% elsif stepable == 'lecture' && is == 'audio' %>
-                        <div class="col-span-6 sm:col-span-4">
-                            <%= stepable_form.label :audio_file, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-                            <%= stepable_form.file_field :audio_file, class: "block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" %>
-                        </div> 
-                    <% elsif stepable == 'quiz' %>
-                        <div class="col-span-6 sm:col-span-6">
-                            <%= stepable_form.label :surveyjs, class: "block text-sm font-medium text-gray-700 dark:text-gray-200" %>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <%= stepable_form.text_area :surveyjs, class: "mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input", placeholder: "JSON format", rows: "8" %>
-                            </div>
-                            <%= stepable_form.label :answer, class: "mt-4 block text-sm font-medium text-gray-700 dark:text-gray-200" %>
-                            <div class="mt-1 relative rounded-md shadow-sm">
-                                <%= stepable_form.text_area :answer, class: "mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input", placeholder: "JSON format", rows: "5" %>
-                            </div>
+                    </div>
+                <% elsif stepable == 'quiz' %>
+                    <div class="col-span-6 sm:col-span-6">
+                        <input type="hidden" name="stepable" value="quiz">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200" for="surveyjs">SurveyJS</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="8" name="surveyjs" id="surveyjs"></textarea>
                         </div>
-                    <% end %>
+                        <label class="mt-5 block text-sm font-medium text-gray-700 dark:text-gray-200" for="answerl">Answer</label>
+                        <div class="mt-1 relative rounded-md shadow-sm">
+                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="5" name="answer" id="answer"></textarea>
+                        </div>
+                    </div>
                 <% end %>
             </div>
         </div>
