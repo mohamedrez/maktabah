@@ -45,8 +45,16 @@
   </div>
 </div>
 <% if can? :manage, @course %>
-  <div class="bg-zinc-200 px-4 py-3 text-center sm:px-6">
-    <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary", style: "margin: 0px 30px;" %>
-    <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary", style: "margin: 0px 30px;" %>
+  <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
+    <div class="page-container">
+      <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+        <div class="p-8 ">
+          <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
+            <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary font-medium" %>
+            <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary font-medium" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
