@@ -1,21 +1,25 @@
 <p><strong><%= @step.name %></strong></p>
-<% if @step.stepable_type == "Lecture" %>
-    <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @my_asset %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
-<% else %>
-  <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
-  <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
-  <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", "id": "helper", "data-surveyjs": @my_asset, defer: true %>
-  <div id="surveyContainer"></div>
-<% end %>
+<div class="my-5">
+  <% if @step.which_type == "video" %>
+    <div class="grid place-items-center">
+      <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @my_asset %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <% elsif @step.which_type == "audio" %>
+    <%= render partial: "audio", locals: {step: @step} %>
+  <% elsif @step.which_type == "quiz" %>
+    <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", "id": "helper", "data-surveyjs": @my_asset, defer: true %>
+    <div id="surveyContainer"></div>
+  <% end %>
+</div>
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
   <div class="page-container">
     <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
       <div class="p-8 ">
         <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
-          <a class="button button--secondary font-medium" href="<%= url_for(course_url(@course)) %>">
-            <i class="pr-2 text-lg far fa-map"></i>View Course
-          </a>        
+          <%= link_to 'View Course', course_path(@course), class: "button button--secondary font-medium" %>
           <% if can? :update, @user_progress %>
             <div class="complete-button__text font-medium">
               <% unless @up_status == "completed"%>
@@ -26,9 +30,7 @@
             </div>
           <% end %>
           <% if @index_plus_one < @course.steps_count %>
-            <a class="button button--secondary font-medium" href="<%= url_for(course_step_url(@course, @step.next_step)) %>">
-              <i class="pr-2 text-lg far fa-arrow-alt-circle-right" aria-hidden="true"></i>Next Step
-            </a>
+            <%= link_to 'Next Step', course_step_path(@course, @step.next_step), class: "button button--secondary font-medium" %>
           <% end %>
         </div>
       </div>

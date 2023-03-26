@@ -26,8 +26,6 @@ class Step < ApplicationRecord
     steps[index_plus_one]
   end
 
-  # organization show action
-
   def up_status(current_user)
     user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: self)
     unless user_progress.status
@@ -37,5 +35,15 @@ class Step < ApplicationRecord
       UserProgress.find_or_create_by!(user: current_user, progressable: course, status: :started)
     end
     user_progress.status
+  end
+
+  def which_type
+    if stepable_type == "Lecture" && Lecture.find(stepable_id).youtube_video_link.present?
+      "video"
+    elsif stepable_type == "Lecture" && Lecture.find(stepable_id).audio_file.attached?
+      "audio"
+    elsif stepable_type == "Quiz"
+      "quiz"
+    end
   end
 end

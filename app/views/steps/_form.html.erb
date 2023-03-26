@@ -1,52 +1,45 @@
-<form data-controller="form-validation" data-action="submit->form-validation#validateAll" action="/courses/<%= step.course_id %>/steps" accept-charset="UTF-8" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
-    <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
+<%= form_with model: step, url: "/courses/#{step.course_id}/steps" do |form| %>
+    <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset">
         <div class="p-8 ">
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-2">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="position">Position</label>
+                    <%= form.label :position, class: "block text-sm font-medium text-gray-700 dark:text-gray-200" %>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" data-test-id="position-field" data-attr="form-validation.position" data-action="blur->form-validation#validate" type="number" name="step[position]" id="position">
+                        <%= form.text_field :position, class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
                     </div>
                     <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                 </div>
                 <div class="col-span-6 sm:col-span-3">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="name">Name</label>
+                    <%= form.label :name, class: "block text-sm font-medium text-gray-700 dark:text-gray-200" %>
                     <div class="mt-1 relative rounded-md shadow-sm">
-                        <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" data-test-id="name-field" data-attr="form-validation.name" data-action="blur->form-validation#validate" type="text" name="step[name]" id="name">
+                        <%= form.text_field :name, class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
                     </div>
-                    <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                 </div>
-                <% if stepable == 'lecture' %>
-                    <input type="hidden" name="stepable" value="lecture">
+                <% if stepable == 'lecture'%>
                     <div class="col-span-6 sm:col-span-4">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="youtube_video_link">Youtube Video Link</label>
+                        <input type="hidden" name="stepable" value="lecture">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200" for="youtube_video_link">Youtube Video Link</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" data-test-id="youtube-video-link-field" data-attr="form-validation.youtube-video-link" data-action="blur->form-validation#validate" type="text" name="youtube_video_link" id="youtube_video_link">
+                            <input class="block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" type="text" name="youtube_video_link" id="youtube_video_link">
                         </div>
-                        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                     </div>
-                <% else %>
-                    <input type="hidden" name="stepable" value="quiz">
+                <% elsif stepable == 'quiz' %>
                     <div class="col-span-6 sm:col-span-6">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="surveyjs">SurveyJS</label>
+                        <input type="hidden" name="stepable" value="quiz">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200" for="surveyjs">SurveyJS</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="8" data-test-id="surveyjs-field" name="surveyjs" id="surveyjs"></textarea>
+                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="8" name="surveyjs" id="surveyjs"></textarea>
                         </div>
-                        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
-                    </div>
-                    <div class="col-span-6 sm:col-span-6">
-                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 " for="answerl">Answer</label>
+                        <label class="mt-5 block text-sm font-medium text-gray-700 dark:text-gray-200" for="answerl">Answer</label>
                         <div class="mt-1 relative rounded-md shadow-sm">
-                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="5" data-test-id="answer-field" name="answer" id="answer"></textarea>
+                            <textarea class="mt-1 block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" placeholder="JSON format" rows="5" name="answer" id="answer"></textarea>
                         </div>
-                        <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
                     </div>
                 <% end %>
             </div>
         </div>
         <div class="p-8 pt-0 px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40">
-            <input type="submit" name="commit" value="Save" class="button button--primary py-2 px-4" data-test-id="save-profile-btn">
+            <%= form.submit "Save", class: "button button--primary py-2 px-4" %>
         </div>
     </div>
-</form>
+<% end %>

@@ -15,7 +15,9 @@ class StepsController < ApplicationController
   def show
     @index_plus_one = @course.steps.index(@step) + 1
 
-    @my_asset = @step.stepable.get_my_asset
+    unless @step.which_type == "audio"
+      @my_asset = @step.stepable.get_my_asset
+    end
 
     if current_user
       @up_status = @step.up_status current_user

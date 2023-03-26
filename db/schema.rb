@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_114305) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_11_171546) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -343,7 +343,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_114305) do
     t.string "unconfirmed_email"
     t.string "username"
     t.text "learning_goal"
-    t.string "avatar"
     t.string "provider"
     t.string "uid"
     t.string "avatar_url"
