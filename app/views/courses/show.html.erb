@@ -13,7 +13,7 @@
       <div class="flex justify-between items-center flex-shrink-1 group hover:bg-gray-100 dark:hover:bg-gray-700 px-2 rounded-lg transition ease-in-out  hover:transition-colors">
         <a class="grow py-3" href="<%= url_for(course_step_url(@course, step)) %>">
           <div class="flex items-center gap-3">
-            <% if step.which_type == "video" %>
+            <% if step.which_type == "lecture" || step.which_type == "video" %>
               <%= image_tag "icons/play.svg", class: "w-7" %>
             <% elsif step.which_type == "audio" %>
               <%= image_tag "icons/audio.svg", class: "w-7" %>
