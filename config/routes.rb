@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     patch "users/profile", to: "profiles#update"
 
     resources :tracks, only: [:index]
-    resources :courses do
+    resources :courses, only: [:index, :show] do
       resources :steps, only: [:index, :show, :new, :create]
     end
     post "/user_quiz_responses", to: "user_quiz_responses#create"
