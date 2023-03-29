@@ -1,3 +1,4 @@
+<%= render partial: "shared/breadcrumbs", locals: {track: @track, where_am_i: 'track'} %>
 <h1 class="text-3xl font-bold underline" ><%= @track.name %></h1>
 <% @courses.each do |course| %>
   <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset mb-16 relative">

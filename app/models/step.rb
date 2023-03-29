@@ -38,7 +38,9 @@ class Step < ApplicationRecord
   end
 
   def which_type
-    if stepable_type == "Lecture" && Lecture.find(stepable_id).youtube_video_link.present?
+    if stepable_type == "Lecture" && Lecture.find(stepable_id).youtube_video_link.present? && Lecture.find(stepable_id).audio_file.attached?
+      "lecture"
+    elsif stepable_type == "Lecture" && Lecture.find(stepable_id).youtube_video_link.present?
       "video"
     elsif stepable_type == "Lecture" && Lecture.find(stepable_id).audio_file.attached?
       "audio"

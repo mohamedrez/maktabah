@@ -1,17 +1,15 @@
+<%= render partial: "shared/breadcrumbs", locals: {track: @track, course: @course, step: @step, where_am_i: 'step'} %>
 <p><strong><%= @step.name %></strong></p>
-<div class="my-5">
-  <% if @step.which_type == "video" %>
-    <div class="grid place-items-center">
-      <iframe title=<%= @step.name %> width="640" height="390" src="http://www.youtube.com/embed/<%= @my_asset %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>" frameborder="0" allowfullscreen></iframe>
-    </div>
+<div>
+  <% if @step.which_type == "lecture" %>
+    <%= render partial: "video", locals: {step: @step, my_asset: @my_asset} %>
+    <%= render partial: "audio", locals: {step: @step} %>
+  <% elsif @step.which_type == "video" %>
+    <%= render partial: "video", locals: {step: @step, my_asset: @my_asset} %>
   <% elsif @step.which_type == "audio" %>
     <%= render partial: "audio", locals: {step: @step} %>
   <% elsif @step.which_type == "quiz" %>
-    <%= javascript_include_tag "https://unpkg.com/jquery", "data-turbo-track": "reload", defer: true %>
-    <%= stylesheet_link_tag "https://unpkg.com/survey-jquery@1.9.74/defaultV2.css", media: "all", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "https://unpkg.com/survey-jquery@1.9.74/survey.jquery.min.js", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "surveyjs", "data-turbo-track": "reload", "id": "helper", "data-surveyjs": @my_asset, defer: true %>
-    <div id="surveyContainer"></div>
+    <%= render partial: "quiz", locals: {my_asset: @my_asset} %>
   <% end %>
 </div>
 <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
@@ -21,7 +19,7 @@
         <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
           <%= link_to 'View Course', course_path(@course), class: "button button--secondary font-medium" %>
           <% if can? :update, @user_progress %>
-            <div class="complete-button__text font-medium">
+            <div class="button button--secondary font-medium">
               <% unless @up_status == "completed"%>
                 <%= button_to 'Mark complete', user_progress_path(course_id: @course.id, step_id: @step.id), method: :patch %>
               <% else %>

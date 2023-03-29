@@ -11,6 +11,7 @@ class StepsController < ApplicationController
   end
 
   def show
+    @track = Track.find(@course.track_id)
     @index_plus_one = @course.steps.index(@step) + 1
 
     unless @step.which_type == "audio"
