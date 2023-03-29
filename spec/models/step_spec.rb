@@ -34,12 +34,22 @@ RSpec.describe(Step, type: :model) do
   end
 
   describe "#next_step" do
-    it "return the next step because it exists" do
+    it "returns the next step because it exists" do
       expect(@step1.next_step).to eql(@step2)
     end
 
-    it "return null because this step is the last one" do
+    it "returns null because this step is the last one" do
       expect(@step2.next_step).to eql(nil)
+    end
+  end
+
+  describe "#previous_step" do
+    it "returns null because this step is the first one" do
+      expect(@step1.previous_step).to eql(nil)
+    end
+
+    it "returns the previous step because it exists" do
+      expect(@step2.previous_step).to eql(@step1)
     end
   end
 
