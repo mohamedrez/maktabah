@@ -26,6 +26,13 @@ class Step < ApplicationRecord
     steps[index_plus_one]
   end
 
+  def previous_step
+    steps = Course.find(course_id).steps.order(id: :desc)
+    index_minus_one = steps.index(self) + 1
+    return if index_minus_one >= steps.count
+    steps[index_minus_one]
+  end
+
   def up_status(current_user)
     user_progress = UserProgress.find_or_create_by!(user: current_user, progressable: self)
     unless user_progress.status

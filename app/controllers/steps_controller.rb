@@ -13,6 +13,7 @@ class StepsController < ApplicationController
   def show
     @track = Track.find(@course.track_id)
     @index_plus_one = @course.steps.index(@step) + 1
+    @index_minus_one = @course.steps.index(@step) - 1
 
     unless @step.which_type == "audio"
       @my_asset = @step.stepable.get_my_asset
