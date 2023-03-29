@@ -1,3 +1,4 @@
+<%= render partial: "shared/breadcrumbs", locals: {track: @track, course: @course, where_am_i: 'course'} %>
 <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset mb-10">
   <div class="p-8 pb-0 px-6 pt-4 pb-4 border-b dark:border-gray-700">
     <a id="introduction" class="no-underline scroll-mt-5 inline-block" href="#introduction">
@@ -12,7 +13,7 @@
       <div class="flex justify-between items-center flex-shrink-1 group hover:bg-gray-100 dark:hover:bg-gray-700 px-2 rounded-lg transition ease-in-out  hover:transition-colors">
         <a class="grow py-3" href="<%= url_for(course_step_url(@course, step)) %>">
           <div class="flex items-center gap-3">
-            <% if step.which_type == "video" %>
+            <% if step.which_type == "lecture" || step.which_type == "video" %>
               <%= image_tag "icons/play.svg", class: "w-7" %>
             <% elsif step.which_type == "audio" %>
               <%= image_tag "icons/audio.svg", class: "w-7" %>
@@ -44,17 +45,3 @@
     </div>
   </div>
 </div>
-<% if can? :manage, @course %>
-  <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
-    <div class="page-container">
-      <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
-        <div class="p-8 ">
-          <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
-            <%= link_to 'Add New Lecture', new_course_step_path(@course, stepable: "lecture"), class: "button button--secondary font-medium" %>
-            <%= link_to 'Add New Quiz', new_course_step_path(@course, stepable: "quiz"), class: "button button--secondary font-medium" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>

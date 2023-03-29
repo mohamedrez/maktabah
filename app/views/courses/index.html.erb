@@ -1,3 +1,4 @@
+<%= render partial: "shared/breadcrumbs", locals: {track: @track, where_am_i: 'track'} %>
 <h1 class="text-3xl font-bold underline" ><%= @track.name %></h1>
 <% @courses.each do |course| %>
   <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset mb-16 relative">
@@ -21,19 +22,6 @@
     </div>
     <div class="p-8 ">
       <p class="prose prose-gray dark:prose-invert max-w-none"><%= course.description %></p>
-    </div>
-  </div>
-<% end %>
-<% if can? :manage, Course %>
-  <div class="bg-gray-100 dark:bg-gray-800/30 text-center">
-    <div class="page-container">
-      <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
-        <div class="p-8 ">
-          <div class="flex flex-col justify-center max-w-sm mx-auto space-y-6 md:max-w-full md:space-y-0 md:flex-row md:space-x-7">
-            <%= link_to 'Add New Course', new_course_path, class: "button button--secondary font-medium" %>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 <% end %>
