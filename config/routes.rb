@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :tracks, only: [:index]
     resources :courses, only: [:index, :show] do
-      resources :steps, only: [:index, :show, :new, :create]
+      resources :steps, only: [:index, :show]
     end
     post "/user_quiz_responses", to: "user_quiz_responses#create"
     resources :user_progresses, only: [:update]
