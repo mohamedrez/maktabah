@@ -3,7 +3,11 @@ en:
     home: "Home"
     all_paths: "All Paths"
     community: "Community"
-    switch_to: "Switch to arabic"
+    drop_down:
+      settings: "Settings"
+      switch_mode: "Switch mode"
+      switch_to: "Switch to arabic"
+      sign_out: "Sign out"
   flash:
     courses_controller: 
       course_been_created: "Great! The Course has been created!"

@@ -3,7 +3,11 @@ ar:
     home: "الصفحة الرئيسية"
     all_paths: "كل المسارات"
     community: "مجتمع"
-    switch_to: "التبديل إلى الإنجليزية"
+    drop_down:
+      settings: "إعدادات"
+      switch_mode: "تغيير النظام"
+      switch_to: "التبديل إلى الإنجليزية"
+      sign_out: "خروج"
   flash:
     courses_controller: 
       course_been_created: "!عظيم! تم إنشاء الدورة"
