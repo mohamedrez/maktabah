@@ -49,24 +49,24 @@ ar:
     with: "مع"
     mark_complete: "وضع علامة كاملة"
     lesson_completed: "اكتمل الدرس"
-  settings:
-    profile:
-      pro: "حساب تعريفي"
-      profile_info: ".سيتم عرض معلومات الملف الشخصي على صفحتك الرئيسية"
-      username: "اسم المستخدم"
-      email: "بريد إلكتروني"
-      learning_goal: "هدف التعلم"
-      wanna_be: "أريد أن أكون الأفضل ..."
-      avatar: "الصورة الرمزية"
-      danger: "منطقة الخطر"
-      careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
-      delete_account: "حذف الحساب"
-      delete:
-        cannot_be_undone: "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك بشكل دائم"
-        yes_sure: "نعم أنا متأكد"
-        no_cancel: "لا ، إلغاء"
-    password:
-      pas: "كلمة المرور"
+  profiles:
+    profile: "حساب تعريفي"
+    profile_info: ".سيتم عرض معلومات الملف الشخصي على صفحتك الرئيسية"
+    username: "اسم المستخدم"
+    email: "بريد إلكتروني"
+    learning_goal: "هدف التعلم"
+    wanna_be: "أريد أن أكون الأفضل ..."
+    avatar: "الصورة الرمزية"
+    danger: "منطقة الخطر"
+    careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
+    delete_account: "حذف الحساب"
+    delete:
+      cannot_be_undone: "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك بشكل دائم"
+      yes_sure: "نعم أنا متأكد"
+      no_cancel: "لا ، إلغاء"
+  devise:
+    passwords:
+      password: "كلمة المرور"
       change_your_password: "غير كلمة المرور الخاصة بك"
       current_password: "كلمة السر الحالية"
       characters_minimum: "الحد الأدنى من الأحرف"

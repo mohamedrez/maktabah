@@ -49,24 +49,24 @@ en:
     with: "with"
     mark_complete: "Mark complete"
     lesson_completed: "Lesson Completed"
-  settings:
-    profile:
-      pro: "Profile"
-      profile_info: "Profile information will be displayed on your home."
-      username: "Username"
-      email: "Email"
-      learning_goal: "Learning goal"
-      wanna_be: "I wanna be the very best..."
-      avatar: "Avatar"
-      danger: "Danger Zone"
-      careful: "Careful, these actions can not be undone."
-      delete_account: "Delete account"
-      delete:
-        cannot_be_undone: "This action cannot be undone. This will permanently delete your account"
-        yes_sure: "Yes, I'm sure"
-        no_cancel: "No, cancel"
-    password:
-      pas: "Password"
+  profiles:
+    pro: "Profile"
+    profile_info: "Profile information will be displayed on your home."
+    username: "Username"
+    email: "Email"
+    learning_goal: "Learning goal"
+    wanna_be: "I wanna be the very best..."
+    avatar: "Avatar"
+    danger: "Danger Zone"
+    careful: "Careful, these actions can not be undone."
+    delete_account: "Delete account"
+    delete:
+      cannot_be_undone: "This action cannot be undone. This will permanently delete your account"
+      yes_sure: "Yes, I'm sure"
+      no_cancel: "No, cancel"
+  devise:
+    passwords:
+      password: "Password"
       change_your_password: "Change your password"
       current_password: "Current password"
       characters_minimum: "characters minimum"
