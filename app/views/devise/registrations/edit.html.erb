@@ -5,13 +5,13 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-400 group-hover:text-gray-500 dark:text-gray-400 dark:group-hover:text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6" role="img" aria-labelledby="a988u6dea2r5pjs893kohxcp6nx5mh5n"><title id="a988u6dea2r5pjs893kohxcp6nx5mh5n">Profile icon</title>
           <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
         </svg>
-        <span class="truncate"> Profile </span>
+        <span class="truncate mx-3"> <%= t("profiles.profile") %> </span>
       </a>
       <a class="bg-gray-200 text-gray-900 dark:bg-gray-700/50 dark:text-gray-300 group rounded-md px-3 py-2 flex items-center text-sm font-medium" href="<%= url_for(edit_user_registration_url) %>">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500 group-hover:text-gray-700 dark:text-gray-300 dark:group-hover:text-gray-300 flex-shrink-0 -ml-1 mr-3 h-6 w-6" role="img" aria-labelledby="a1gwljkr9oqb14w6eotf3qyxu0erdsn5"><title id="a1gwljkr9oqb14w6eotf3qyxu0erdsn5">Password icon</title>
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path>
         </svg>
-        <span class="truncate"> Password </span>
+        <span class="truncate mx-3"> <%= t("devise.passwords.password") %> </span>
       </a>
     </nav>
   </aside>
@@ -21,21 +21,21 @@
 
       <div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset ">
         <div class="p-8 pb-0 ">
-          <h3 class="text-xl leading-6 font-medium text-gray-700 dark:text-gray-200">Change your password</h3>
+          <h3 class="text-xl leading-6 font-medium text-gray-700 dark:text-gray-200"><%= t("devise.passwords.change_your_password") %></h3>
         </div>
         <div class="p-8 ">
           <div class="grid grid-cols-6 gap-6 grid-flow-row">
             <div class="col-span-6 sm:col-span-4">
-              <%= f.label :current_password, class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
+              <%= f.label :current_password, t("devise.passwords.current_password"), class: "my-3 block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <%= f.password_field :current_password, autocomplete: "current-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
               </div>
               <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
             </div>
             <div class="col-span-6 sm:col-span-4">
-              <%= f.label :password, class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
+              <%= f.label :password, t("devise.passwords.password"), class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
               <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <em>(<%= @minimum_password_length %> <%= t("devise.passwords.characters_minimum") %>)</em>
               <% end %>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <%= f.password_field :password, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
@@ -43,7 +43,7 @@
               <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
             </div>
             <div class="col-span-6 sm:col-span-4">
-              <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
+              <%= f.label :password_confirmation, t("devise.passwords.password_confirmation"), class: "my-3 block text-sm font-medium text-gray-700 dark:text-gray-200 " %>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full border rounded-md py-2 px-3 focus:outline-none dark:bg-gray-700/50 dark:border-gray-500 dark:text-gray-300 dark:placeholder-gray-400 dark:focus:ring-gray-500 dark:focus:ring-2 dark:focus:border-transparent border-gray-300 focus:ring-blue-600 focus:border-blue-600 dark-form-input" %>
               </div>
@@ -52,7 +52,7 @@
           </div>
         </div>
         <div class="p-8 pt-0 px-4 py-3 pt-3 bg-gray-50 text-right sm:px-6 dark:bg-gray-700/40">
-          <%= f.submit 'Save', class: 'button button--primary py-2 px-4' %>
+          <%= f.submit t("devise.save"), class: 'button button--primary py-2 px-4' %>
         </div>
       </div>
     <% end %>

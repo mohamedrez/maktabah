@@ -2,8 +2,15 @@ ar:
   navbar:
     home: "الصفحة الرئيسية"
     all_paths: "كل المسارات"
+    about: "حول"
     community: "مجتمع"
-    switch_to: "التبديل إلى الإنجليزية"
+    sign_in: "تسجيل الدخول"
+    drop_down:
+      settings: "إعدادات"
+      switch_mode: "تغيير النظام"
+      switch_to: "التبديل إلى الإنجليزية"
+      sign_out: "خروج"
+    get_started: "ابدأ الآن"
   flash:
     courses_controller: 
       course_been_created: "!عظيم! تم إنشاء الدورة"
@@ -15,3 +22,69 @@ ar:
       quiz_did_not_passed: ".لم ينجح الاختبار"
     profiles_controller:
       account_been_updated: "تم تحديث الحساب الخاص بك"
+  breadcrumb:
+    all_paths: "كل المسارات"
+    track: "مسار"
+    course: "دورة"
+    step: "خطوة"
+  home:
+    active: "نشيط"
+    in_progress: "في تَقَدم"
+    completed: "مكتمل"
+    block:
+      active_step: "الخطوة النشطة"
+      active_course: "دورة نشطة"
+      course: "دورة"
+      view_step: "عرض الخطوة"
+      view_course: "عرض الدورة"
+  tracks:
+    path: "مسار"
+    courses: "الدورات"
+    view: "شاهد"
+  courses:
+    lessons: "الدروس"
+    open_course: "افتح الدورة"
+  steps:
+    listen_to_audio: "أو الاستماع إلى مقطع صوتي"
+    with: "مع"
+    mark_complete: "وضع علامة كاملة"
+    lesson_completed: "اكتمل الدرس"
+  profiles:
+    profile: "حساب تعريفي"
+    profile_info: ".سيتم عرض معلومات الملف الشخصي على صفحتك الرئيسية"
+    username: "اسم المستخدم"
+    email: "بريد إلكتروني"
+    learning_goal: "هدف التعلم"
+    wanna_be: "أريد أن أكون الأفضل ..."
+    avatar: "الصورة الرمزية"
+    danger: "منطقة الخطر"
+    careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
+    delete_account: "حذف الحساب"
+    delete:
+      cannot_be_undone: "لا يمكن التراجع عن هذا الإجراء. سيؤدي هذا إلى حذف حسابك بشكل دائم"
+      yes_sure: "نعم أنا متأكد"
+      no_cancel: "لا ، إلغاء"
+  devise:
+    passwords:
+      password: "كلمة المرور"
+      change_your_password: "غير كلمة المرور الخاصة بك"
+      current_password: "كلمة السر الحالية"
+      characters_minimum: "الحد الأدنى من الأحرف"
+      password_confirmation: "تأكيد كلمة المرور"
+    sign_in:
+      has_account: "تسجيل الدخول إلى حسابك"
+      new_account: "قم بالتسجيل للحصول على حساب جديد"
+      remember_me: "تذكرنى"
+      forgot_pas: "نسيت كلمة السر؟"
+      confirmation_instructions: "لم تتلق تعليمات التأكيد؟"
+    save: "يحفظ"
+    or: "أو"
+    log_in: "تسجيل الدخول"
+    continue_with: "أو تواصل مع"
+    sign_up: "اشتراك"
+    forgot_password: "نسيت كلمة السر؟"
+    resend_confirmation: "أعد إرسال تعليمات التأكيد"
+    reset_instructions: "أرسل لي تعليمات إعادة تعيين كلمة المرور"
+    reset_pass: "أعد تعيين كلمة المرور"
+    new_pass: "كلمة المرور الجديدة"
+    new_pass_conf: "تأكيد كلمة السر الجديدة"

@@ -2,8 +2,15 @@ en:
   navbar:
     home: "Home"
     all_paths: "All Paths"
+    about: "About"
     community: "Community"
-    switch_to: "Switch to arabic"
+    sign_in: "Sign in"
+    drop_down:
+      settings: "Settings"
+      switch_mode: "Switch mode"
+      switch_to: "Switch to arabic"
+      sign_out: "Sign out"
+    get_started: "get started now"
   flash:
     courses_controller: 
       course_been_created: "Great! The Course has been created!"
@@ -15,3 +22,69 @@ en:
       quiz_did_not_passed: "The quiz didn't passed."
     profiles_controller:
       account_been_updated: "Your account has been updated"
+  breadcrumb:
+    all_paths: "All Paths"
+    track: "Track"
+    course: "Course"
+    step: "Step"
+  home:
+    active: "Active"
+    in_progress: "In Progress"
+    completed: "Completed"
+    block:
+      active_step: "Active Step"
+      active_course: "Active Course"
+      course: "Course"
+      view_step: "View Step"
+      view_course: "View Course"
+  tracks:
+    path: "PATH"
+    courses: "Courses"
+    view: "View"
+  courses:
+    lessons: "Lessons"
+    open_course: "Open Course"
+  steps:
+    listen_to_audio: "or listen to an audio"
+    with: "with"
+    mark_complete: "Mark complete"
+    lesson_completed: "Lesson Completed"
+  profiles:
+    pro: "Profile"
+    profile_info: "Profile information will be displayed on your home."
+    username: "Username"
+    email: "Email"
+    learning_goal: "Learning goal"
+    wanna_be: "I wanna be the very best..."
+    avatar: "Avatar"
+    danger: "Danger Zone"
+    careful: "Careful, these actions can not be undone."
+    delete_account: "Delete account"
+    delete:
+      cannot_be_undone: "This action cannot be undone. This will permanently delete your account"
+      yes_sure: "Yes, I'm sure"
+      no_cancel: "No, cancel"
+  devise:
+    passwords:
+      password: "Password"
+      change_your_password: "Change your password"
+      current_password: "Current password"
+      characters_minimum: "characters minimum"
+      password_confirmation: "Password confirmation"
+    sign_in:
+      has_account: "Sign in to your account"
+      new_account: "sign up for a new account"
+      remember_me: "Remember me"
+      forgot_pas: "Forgot your password?"
+      confirmation_instructions: "Didn't receive confirmation instructions?"
+    save: "Save"
+    or: "Or"
+    log_in: "Log in"
+    continue_with: "Or continue with"
+    sign_up: "Sign up"
+    forgot_password: "Forgot your password?"
+    resend_confirmation: "Resend confirmation instructions"
+    reset_instructions: "Send me reset password instructions"
+    reset_pass: "Reset the password"
+    new_pass: "New password"
+    new_pass_conf: "New password confirmation"

@@ -5,11 +5,11 @@
         <div class="h-full bg-zinc-100 shadow dark:bg-gray-800 px-8 pt-16 pb-16 rounded-lg overflow-hidden relative flex flex-col">
           <div class="p-8 pb-0 flex flex-col justify-between items-center">
             <a class="p-2 dark:bg-gray-700/50 rounded-full" href="<%= url_for(courses_url(track_id: track.id)) %>">
-              <img alt="Full Stack Ruby on Rails badge" class="w-24 h-24" src="/assets/badge-ruby-on-rails-5c5f3a237abf4d3d3cb3d7efc64cdbd9e493b876bd7a64c8b70977204d93ddaa.svg">
+              <%= image_tag "icons/track.svg", alt: "#{track.name}", class: "w-24 h-24"  %>
             </a>
             <div class="w-full flex justify-between pt-6">
-              <p class=" text-gold-600">PATH</p>
-              <p class=" text-gray-500 dark:text-gray-400"><%= track.courses_count %> Courses</p>
+              <p class=" text-gold-600"><%= t('tracks.path') %></p>
+              <p class=" text-gray-500 dark:text-gray-400"><%= track.courses_count %> <%= t('tracks.courses') %></p>
             </div>
           </div>
           <div class="p-8 flex-grow">
@@ -23,7 +23,7 @@
             </p>
           </div>
           <div class="p-8 pt-0 ">
-            <%= link_to "View", courses_path(track_id: track.id), class: "button button--primary px-10 lg:px-20 w-full" %>
+            <%= link_to t('tracks.view'), courses_path(track_id: track.id), class: "button button--primary px-10 lg:px-20 w-full" %>
           </div>
         </div>
       </div>
