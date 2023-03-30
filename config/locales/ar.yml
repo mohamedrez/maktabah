@@ -2,12 +2,15 @@ ar:
   navbar:
     home: "الصفحة الرئيسية"
     all_paths: "كل المسارات"
+    about: "حول"
     community: "مجتمع"
+    sign_in: "تسجيل الدخول"
     drop_down:
       settings: "إعدادات"
       switch_mode: "تغيير النظام"
       switch_to: "التبديل إلى الإنجليزية"
       sign_out: "خروج"
+    get_started: "ابدأ الآن"
   flash:
     courses_controller: 
       course_been_created: "!عظيم! تم إنشاء الدورة"
