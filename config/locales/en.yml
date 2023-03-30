@@ -71,4 +71,13 @@ en:
       current_password: "Current password"
       characters_minimum: "characters minimum"
       password_confirmation: "Password confirmation"
+    sign_in:
+      has_account: "Sign in to your account"
+      new_account: "sign up for a new account"
+      remember_me: "Remember me"
+      forgot_pas: "Forgot your password?"
+      confirmation_instructions: "Didn't receive confirmation instructions?"
     save: "Save"
+    or: "Or"
+    log_in: "Log in"
+    continue_with: "Or continue with"

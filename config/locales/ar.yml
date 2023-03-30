@@ -71,4 +71,13 @@ ar:
       current_password: "كلمة السر الحالية"
       characters_minimum: "الحد الأدنى من الأحرف"
       password_confirmation: "تأكيد كلمة المرور"
+    sign_in:
+      has_account: "تسجيل الدخول إلى حسابك"
+      new_account: "قم بالتسجيل للحصول على حساب جديد"
+      remember_me: "تذكرنى"
+      forgot_pas: "نسيت كلمة السر؟"
+      confirmation_instructions: "لم تتلق تعليمات التأكيد؟"
     save: "يحفظ"
+    or: "أو"
+    log_in: "تسجيل الدخول"
+    continue_with: "أو تواصل مع"
