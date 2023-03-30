@@ -8,8 +8,8 @@
               <%= image_tag "icons/track.svg", alt: "#{track.name}", class: "w-24 h-24"  %>
             </a>
             <div class="w-full flex justify-between pt-6">
-              <p class=" text-gold-600">PATH</p>
-              <p class=" text-gray-500 dark:text-gray-400"><%= track.courses_count %> Courses</p>
+              <p class=" text-gold-600"><%= t('tracks.path') %></p>
+              <p class=" text-gray-500 dark:text-gray-400"><%= track.courses_count %> <%= t('tracks.courses') %></p>
             </div>
           </div>
           <div class="p-8 flex-grow">
@@ -23,7 +23,7 @@
             </p>
           </div>
           <div class="p-8 pt-0 ">
-            <%= link_to "View", courses_path(track_id: track.id), class: "button button--primary px-10 lg:px-20 w-full" %>
+            <%= link_to t('tracks.view'), courses_path(track_id: track.id), class: "button button--primary px-10 lg:px-20 w-full" %>
           </div>
         </div>
       </div>

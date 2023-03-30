@@ -32,3 +32,7 @@ ar:
       course: "دورة"
       view_step: "عرض الخطوة"
       view_course: "عرض الدورة"
+  tracks:
+    path: "مسار"
+    courses: "الدورات"
+    view: "شاهد"
