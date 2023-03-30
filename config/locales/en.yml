@@ -62,5 +62,9 @@ en:
       danger: "Danger Zone"
       careful: "Careful, these actions can not be undone."
       delete_account: "Delete account"
+      delete:
+        cannot_be_undone: "This action cannot be undone. This will permanently delete your account"
+        yes_sure: "Yes, I'm sure"
+        no_cancel: "No, cancel"
     password:
       pas: "Password"
