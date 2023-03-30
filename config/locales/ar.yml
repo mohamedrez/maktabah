@@ -41,10 +41,6 @@ ar:
     path: "مسار"
     courses: "الدورات"
     view: "شاهد"
-  tracks:
-    path: "PATH"
-    courses: "Courses"
-    view: "View"
   courses:
     lessons: "الدروس"
     open_course: "افتح الدورة"
@@ -53,3 +49,18 @@ ar:
     with: "مع"
     mark_complete: "وضع علامة كاملة"
     lesson_completed: "اكتمل الدرس"
+  settings:
+    profile:
+      pro: "حساب تعريفي"
+      profile_info: ".سيتم عرض معلومات الملف الشخصي على صفحتك الرئيسية"
+      username: "اسم المستخدم"
+      email: "بريد إلكتروني"
+      learning_goal: "هدف التعلم"
+      wanna_be: "أريد أن أكون الأفضل ..."
+      avatar: "الصورة الرمزية"
+      save: "يحفظ"
+      danger: "منطقة الخطر"
+      careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
+      delete_account: "حذف الحساب"
+    password:
+      pas: "كلمة المرور"
