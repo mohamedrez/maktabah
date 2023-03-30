@@ -3,17 +3,17 @@
     <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
       <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-indigo-500" onclick="changeAtiveTab(event,'tab-active')">
-          <i class="fas fa-space-shuttle text-base mr-1"></i>  Active
+          <i class="fas fa-space-shuttle text-base mr-1"></i><%= t('home.active') %>
         </a>
       </li>
-      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <li class="-mb-px mx-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-neutral-600 bg-white" onclick="changeAtiveTab(event,'tab-in-progress')">
-          <i class="fas fa-cog text-base mr-1"></i>  In Progress
+          <i class="fas fa-cog text-base mr-1"></i><%= t('home.in_progress') %>
         </a>
       </li>
-      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+      <li class="-mb-px mx-2 last:mr-0 flex-auto text-center">
         <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-neutral-600 bg-white" onclick="changeAtiveTab(event,'tab-completed-courses')">
-          <i class="fas fa-briefcase text-base mr-1"></i>  Completed
+          <i class="fas fa-briefcase text-base mr-1"></i><%= t('home.completed') %>
         </a>
       </li>
     </ul>

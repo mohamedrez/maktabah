@@ -22,3 +22,13 @@ ar:
       quiz_did_not_passed: ".لم ينجح الاختبار"
     profiles_controller:
       account_been_updated: "تم تحديث الحساب الخاص بك"
+  home:
+    active: "نشيط"
+    in_progress: "في تَقَدم"
+    completed: "مكتمل"
+    block:
+      active_step: "الخطوة النشطة"
+      active_course: "دورة نشطة"
+      course: "دورة"
+      view_step: "عرض الخطوة"
+      view_course: "عرض الدورة"
