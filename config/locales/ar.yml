@@ -46,6 +46,5 @@ ar:
     courses: "Courses"
     view: "View"
   courses:
-    index:
-      lessons: "الدروس"
-      open_course: "افتح الدورة"
+    lessons: "الدروس"
+    open_course: "افتح الدورة"

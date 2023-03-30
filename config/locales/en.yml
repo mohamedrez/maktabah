@@ -42,6 +42,5 @@ en:
     courses: "Courses"
     view: "View"
   courses:
-    index:
-      lessons: "Lessons"
-      open_course: "Open Course"
+    lessons: "Lessons"
+    open_course: "Open Course"
