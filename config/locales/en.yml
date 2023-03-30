@@ -84,3 +84,4 @@ en:
     sign_up: "Sign up"
     forgot_password: "Forgot your password?"
     resend_confirmation: "Resend confirmation instructions"
+    reset_instructions: "Send me reset password instructions"

@@ -84,3 +84,4 @@ ar:
     sign_up: "اشتراك"
     forgot_password: "نسيت كلمة السر؟"
     resend_confirmation: "أعد إرسال تعليمات التأكيد"
+    reset_instructions: "أرسل لي تعليمات إعادة تعيين كلمة المرور"
