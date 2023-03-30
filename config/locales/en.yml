@@ -58,7 +58,6 @@ en:
       learning_goal: "Learning goal"
       wanna_be: "I wanna be the very best..."
       avatar: "Avatar"
-      save: "Save"
       danger: "Danger Zone"
       careful: "Careful, these actions can not be undone."
       delete_account: "Delete account"
@@ -68,3 +67,8 @@ en:
         no_cancel: "No, cancel"
     password:
       pas: "Password"
+      change_your_password: "Change your password"
+      current_password: "Current password"
+      characters_minimum: "characters minimum"
+      password_confirmation: "Password confirmation"
+    save: "Save"

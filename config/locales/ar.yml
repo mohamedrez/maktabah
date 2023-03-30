@@ -58,7 +58,6 @@ ar:
       learning_goal: "هدف التعلم"
       wanna_be: "أريد أن أكون الأفضل ..."
       avatar: "الصورة الرمزية"
-      save: "يحفظ"
       danger: "منطقة الخطر"
       careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
       delete_account: "حذف الحساب"
@@ -68,3 +67,8 @@ ar:
         no_cancel: "لا ، إلغاء"
     password:
       pas: "كلمة المرور"
+      change_your_password: "غير كلمة المرور الخاصة بك"
+      current_password: "كلمة السر الحالية"
+      characters_minimum: "الحد الأدنى من الأحرف"
+      password_confirmation: "تأكيد كلمة المرور"
+    save: "يحفظ"
