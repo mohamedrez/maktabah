@@ -82,3 +82,5 @@ en:
     log_in: "Log in"
     continue_with: "Or continue with"
     sign_up: "Sign up"
+    forgot_password: "Forgot your password?"
+    resend_confirmation: "Resend confirmation instructions"
