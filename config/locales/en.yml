@@ -22,6 +22,11 @@ en:
       quiz_did_not_passed: "The quiz didn't passed."
     profiles_controller:
       account_been_updated: "Your account has been updated"
+  breadcrumb:
+    all_paths: "All Paths"
+    track: "Track"
+    course: "Course"
+    step: "Step"
   home:
     active: "Active"
     in_progress: "In Progress"

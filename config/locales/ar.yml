@@ -22,6 +22,11 @@ ar:
       quiz_did_not_passed: ".لم ينجح الاختبار"
     profiles_controller:
       account_been_updated: "تم تحديث الحساب الخاص بك"
+  breadcrumb:
+    all_paths: "كل المسارات"
+    track: "مسار"
+    course: "دورة"
+    step: "خطوة"
   home:
     active: "نشيط"
     in_progress: "في تَقَدم"
