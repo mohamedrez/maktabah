@@ -36,3 +36,11 @@ ar:
     path: "مسار"
     courses: "الدورات"
     view: "شاهد"
+  tracks:
+    path: "PATH"
+    courses: "Courses"
+    view: "View"
+  courses:
+    index:
+      lessons: "الدروس"
+      open_course: "افتح الدورة"

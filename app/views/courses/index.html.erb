@@ -14,10 +14,10 @@
             <h2 id="intermediate-html-and-css" class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200">
               <%= course.name %>
             </h2>
-            <span class=" text-sm text-gray-400"><%= course.steps_count %> Lessons</span>
+            <span class=" text-sm text-gray-400"><%= course.steps_count %> <%= t("courses.index.lessons") %></span>
           </a>
         </div>
-        <a class="button button--clear" href="<%= url_for(course_url(course)) %>">Open Course</a>
+        <a class="button button--clear" href="<%= url_for(course_url(course)) %>"><%= t("courses.index.open_course") %></a>
       </div>
     </div>
     <div class="p-8 ">

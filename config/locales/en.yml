@@ -36,3 +36,7 @@ en:
     path: "PATH"
     courses: "Courses"
     view: "View"
+  courses:
+    index:
+      lessons: "Lessons"
+      open_course: "Open Course"
