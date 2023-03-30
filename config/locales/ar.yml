@@ -48,3 +48,8 @@ ar:
   courses:
     lessons: "الدروس"
     open_course: "افتح الدورة"
+  steps:
+    listen_to_audio: "أو الاستماع إلى مقطع صوتي"
+    with: "مع"
+    mark_complete: "وضع علامة كاملة"
+    lesson_completed: "اكتمل الدرس"

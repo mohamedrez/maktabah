@@ -44,3 +44,8 @@ en:
   courses:
     lessons: "Lessons"
     open_course: "Open Course"
+  steps:
+    listen_to_audio: "or listen to an audio"
+    with: "with"
+    mark_complete: "Mark complete"
+    lesson_completed: "Lesson Completed"
