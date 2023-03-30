@@ -85,3 +85,6 @@ ar:
     forgot_password: "نسيت كلمة السر؟"
     resend_confirmation: "أعد إرسال تعليمات التأكيد"
     reset_instructions: "أرسل لي تعليمات إعادة تعيين كلمة المرور"
+    reset_pass: "أعد تعيين كلمة المرور"
+    new_pass: "كلمة المرور الجديدة"
+    new_pass_conf: "تأكيد كلمة السر الجديدة"
