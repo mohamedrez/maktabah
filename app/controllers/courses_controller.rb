@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
   def index
     @track = Track.find(params[:track_id])
     @courses = @track.courses
+    @track_steps = @track.how_many_steps
   end
 
   def show

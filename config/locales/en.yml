@@ -52,6 +52,8 @@ en:
   courses:
     lessons: "Lessons"
     open_course: "Open Course"
+    co: "Courses"
+    steps: "Steps"
   steps:
     listen_to_audio: "or listen to an audio"
     with: "with"

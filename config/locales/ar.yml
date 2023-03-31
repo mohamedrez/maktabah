@@ -52,6 +52,8 @@ ar:
   courses:
     lessons: "الدروس"
     open_course: "افتح الدورة"
+    co: "الدورات"
+    steps: "خطوات"
   steps:
     listen_to_audio: "أو الاستماع إلى مقطع صوتي"
     with: "مع"
