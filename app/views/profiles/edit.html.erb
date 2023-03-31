@@ -46,17 +46,7 @@
                 </div>
                 <div class="mt-2 text-sm text-red-600 dark:text-red-500 hidden"></div>
               </div>
-              <div class="col-span-6">
-                <% if I18n.locale == :en %>
-                  <%= form.label :avatar, t("profiles.avatar"), class: "my-3 mr-5 text-sm font-medium text-gray-900 dark:text-white" %>
-                <% else %>
-                  <%= form.label :avatar, t("profiles.avatar"), class: "my-3 ml-5 text-sm font-medium text-gray-900 dark:text-white" %>
-                <% end %>
-                <%= form.file_field :avatar, class: "text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400", accept: 'image/svg,image/png,image/jpg,image/jpeg' %>
-                <div class="flex items-center mt-4">
-                  <%= render partial: "shared/user_avatar", locals: {class_avatar: "w-16 h-16 rounded-full"} %>
-                </div>
-              </div>
+              <%= render partial: "upload_avatar", locals: {form: form} %>
             </div>
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right dark:bg-gray-700/40">

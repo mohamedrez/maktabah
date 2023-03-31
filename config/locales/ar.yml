@@ -28,6 +28,8 @@ ar:
     course: "دورة"
     step: "خطوة"
   home:
+    your_name: "ما اسمك؟"
+    your_learning_goal: "ما هو هدفك التعليمي؟"
     active: "نشيط"
     in_progress: "في تَقَدم"
     completed: "مكتمل"
@@ -37,6 +39,12 @@ ar:
       course: "دورة"
       view_step: "عرض الخطوة"
       view_course: "عرض الدورة"
+    nothing_here:
+      first: "لا يوجد"
+      second: "شيء هنا"
+      last: "حتى الآن"
+      text: "نحن مؤسسة غير ربحية مهمتها توفير تعليم مجاني على مستوى عالمي لأي شخص في أي مكان"
+      view_tracks: "مشاهدة المسارات"
   tracks:
     path: "مسار"
     courses: "الدورات"
@@ -44,6 +52,8 @@ ar:
   courses:
     lessons: "الدروس"
     open_course: "افتح الدورة"
+    co: "الدورات"
+    steps: "خطوات"
   steps:
     listen_to_audio: "أو الاستماع إلى مقطع صوتي"
     with: "مع"
@@ -57,6 +67,7 @@ ar:
     learning_goal: "هدف التعلم"
     wanna_be: "أريد أن أكون الأفضل ..."
     avatar: "الصورة الرمزية"
+    change_image: "لتغيير الصورة اضغط عليها"
     danger: "منطقة الخطر"
     careful: ".احذر ، هذه الإجراءات لا يمكن التراجع عنها"
     delete_account: "حذف الحساب"

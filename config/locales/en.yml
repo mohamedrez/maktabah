@@ -28,6 +28,8 @@ en:
     course: "Course"
     step: "Step"
   home:
+    your_name: "What's your name?"
+    your_learning_goal: "What's your learning goal?"
     active: "Active"
     in_progress: "In Progress"
     completed: "Completed"
@@ -37,6 +39,12 @@ en:
       course: "Course"
       view_step: "View Step"
       view_course: "View Course"
+    nothing_here:
+      first: "There's"
+      second: "nothing here"
+      last: "yet"
+      text: "We’re a nonprofit with the mission to provide a free, world-class education for anyone, anywhere"
+      view_tracks: "View Tracks"
   tracks:
     path: "PATH"
     courses: "Courses"
@@ -44,6 +52,8 @@ en:
   courses:
     lessons: "Lessons"
     open_course: "Open Course"
+    co: "Courses"
+    steps: "Steps"
   steps:
     listen_to_audio: "or listen to an audio"
     with: "with"
@@ -57,6 +67,7 @@ en:
     learning_goal: "Learning goal"
     wanna_be: "I wanna be the very best..."
     avatar: "Avatar"
+    change_image: "To change the image click on it"
     danger: "Danger Zone"
     careful: "Careful, these actions can not be undone."
     delete_account: "Delete account"
