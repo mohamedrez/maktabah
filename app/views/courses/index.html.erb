@@ -1,5 +1,4 @@
 <%= render partial: "shared/breadcrumbs", locals: {track: @track, where_am_i: 'track'} %>
-<!--<h1 class="text-3xl font-bold underline" ><%= @track.name %></h1>-->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
   <div class="md:flex mb-10">
     <div class="md:w-1/2 md:pr-8 mb-10">
@@ -30,10 +29,10 @@
             </div>
           </a>
           <a class="flex flex-col md:items-start" href="<%= url_for(course_url(course)) %>">
-            <h2 id="intermediate-html-and-css" class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200">
+            <h2 class="font-medium text-xl md:text-left text-gray-600 dark:text-gray-200 mx-2">
               <%= course.name %>
             </h2>
-            <span class=" text-sm text-gray-400"><%= course.steps_count %> <%= t("courses.lessons") %></span>
+            <span class=" text-sm text-gray-400 mx-2"><%= course.steps_count %> <%= t("courses.lessons") %></span>
           </a>
         </div>
         <a class="button button--clear" href="<%= url_for(course_url(course)) %>"><%= t("courses.open_course") %></a>
