@@ -28,6 +28,8 @@ ar:
     course: "دورة"
     step: "خطوة"
   home:
+    your_name: "ما اسمك؟"
+    your_learning_goal: "ما هو هدفك التعليمي؟"
     active: "نشيط"
     in_progress: "في تَقَدم"
     completed: "مكتمل"

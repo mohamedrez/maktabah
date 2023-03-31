@@ -1,6 +1,6 @@
 <% if courses.any? %>
   <section class="text-gray-400 body-font">
-    <div class="container px-5 py-24 mx-auto">
+    <div class="container px-5 py-20 mx-auto">
       <div class="flex flex-wrap -m-4">
         <% courses.each do |course_id| %>
           <% course = Course.find(course_id) %>

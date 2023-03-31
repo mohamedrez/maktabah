@@ -1,3 +1,24 @@
+<div class="bg-white shadow rounded-lg dark:bg-gray-800 dark:ring-1 dark:ring-white/10 dark:ring-inset mb-10">
+  <div class="p-8">
+    <div class="flex items-center flex-col md:flex-row gap-4">
+      <%= render partial: "shared/user_avatar", locals: {class_avatar: "w-20 h-20 rounded-full shadow-inner"} %>
+      <h2 class="truncate w-full basis-2/5 text-xl text-center md:text-center md:pl-4 font-medium text-gray-700 dark:text-gray-300">
+        <% if current_user.username.present? %>
+          <%= current_user.username %>
+        <% else %>
+          <%= link_to t("home.your_name"), users_profile_edit_path, class: "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 underline" %>
+        <% end %>
+      </h2>
+      <p class="text-gray-500 dark:text-gray-400">
+        <% if current_user.learning_goal.present? %>
+          <%= current_user.learning_goal %>
+        <% else %>
+          <%= link_to t("home.your_learning_goal"), users_profile_edit_path, class: "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 underline" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
 <div class="flex flex-wrap" id="tabs-id">
   <div class="w-full">
     <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">

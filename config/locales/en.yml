@@ -28,6 +28,8 @@ en:
     course: "Course"
     step: "Step"
   home:
+    your_name: "What's your name?"
+    your_learning_goal: "What's your learning goal?"
     active: "Active"
     in_progress: "In Progress"
     completed: "Completed"
