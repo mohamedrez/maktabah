@@ -9,7 +9,7 @@
             <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-800 dark:text-gray-200 mb-3"><%= active_step.name %></h1>
             <div class="leading-relaxed mb-4">###</div>
             <a class="text-indigo-600 dark:text-indigo-500 inline-flex items-center"  href="<%= url_for(course_step_url(course_id: active_course.id, id: active_step.id)) %>"><%= t('home.block.view_step') %>
-              <%= render partial: "arrow_left" %>
+              <%= render partial: "shared/arrow_left" %>
             </a>
           </div>
         </div>
@@ -19,7 +19,7 @@
             <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-800 dark:text-gray-200 mb-3"><%= active_course.name %></h1>
             <div class="leading-relaxed mb-4"><%= active_course.description %></div>
             <a class="text-indigo-600 dark:text-indigo-500 inline-flex items-center" href="<%= url_for(course_url(active_course)) %>"><%= t('home.block.view_course') %>
-              <%= render partial: "arrow_left" %>
+              <%= render partial: "shared/arrow_left" %>
             </a>
           </div>
         </div>

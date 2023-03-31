@@ -39,6 +39,12 @@ ar:
       course: "دورة"
       view_step: "عرض الخطوة"
       view_course: "عرض الدورة"
+    nothing_here:
+      first: "لا يوجد"
+      second: "شيء هنا"
+      last: "حتى الآن"
+      text: "نحن مؤسسة غير ربحية مهمتها توفير تعليم مجاني على مستوى عالمي لأي شخص في أي مكان"
+      view_tracks: "مشاهدة المسارات"
   tracks:
     path: "مسار"
     courses: "الدورات"

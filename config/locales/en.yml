@@ -39,6 +39,12 @@ en:
       course: "Course"
       view_step: "View Step"
       view_course: "View Course"
+    nothing_here:
+      first: "There's"
+      second: "nothing here"
+      last: "yet"
+      text: "We’re a nonprofit with the mission to provide a free, world-class education for anyone, anywhere"
+      view_tracks: "View Tracks"
   tracks:
     path: "PATH"
     courses: "Courses"
