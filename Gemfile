@@ -95,6 +95,6 @@ group :development do
   gem "annotate"
 end
 
-gem "sidekiq", "~> 7.0"
+gem "sidekiq", "~> 7.0", ">= 7.0.8"
 
 gem "noticed", "~> 1.6"
