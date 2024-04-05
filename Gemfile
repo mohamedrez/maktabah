@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.4"
+gem "rails", "~> 7.0.8", ">= 7.0.8.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -18,16 +18,16 @@ gem "mysql2", "~> 0.5"
 gem "puma", "~> 6.1"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
+gem "jsbundling-rails", ">= 1.1.2"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", ">= 1.4.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem "stimulus-rails", ">= 1.2.2"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem "cssbundling-rails"
+gem "cssbundling-rails", ">= 1.2.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -50,32 +50,32 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
-gem "rack-protection"
-gem "lograge"
+gem "rack-protection", ">= 3.0.6"
+gem "lograge", ">= 0.13.0"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
-gem "devise"
+gem "devise", ">= 4.9.1"
 gem "cancancan"
-gem "motor-admin"
-gem "omniauth"
-gem "omniauth-google-oauth2"
+gem "motor-admin", ">= 0.4.8"
+gem "omniauth", ">= 2.1.2"
+gem "omniauth-google-oauth2", ">= 1.1.2"
 gem "omniauth-twitter"
 gem "omniauth-rails_csrf_protection"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "rubocop-rails", require: false
+  gem "rspec-rails", ">= 6.0.2"
+  gem "factory_bot_rails", ">= 6.3.0"
+  gem "rubocop-rails", ">= 2.18.0", require: false
   gem "rubocop-shopify", require: false
-  gem "dotenv-rails"
+  gem "dotenv-rails", ">= 3.0.0"
   gem "faker"
   gem "standard"
 end
 
 group :test do
-  gem "capybara"
+  gem "capybara", ">= 3.39.0"
   gem "simplecov", require: false
   gem "rspec_junit_formatter"
   gem "simplecov-cobertura", require: false
@@ -84,7 +84,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  gem "web-console", ">= 4.2.1"
   gem "overcommit"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -95,6 +95,6 @@ group :development do
   gem "annotate"
 end
 
-gem "sidekiq", "~> 7.0"
+gem "sidekiq", "~> 7.0", ">= 7.0.7"
 
-gem "noticed", "~> 1.6"
+gem "noticed", "~> 1.6", ">= 1.6.1"
