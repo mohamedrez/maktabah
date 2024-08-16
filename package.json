@@ -9,7 +9,7 @@
     "esbuild": "^0.18.4",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7",
-    "trix": "^2.0.4"
+    "trix": "^2.1.4"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
