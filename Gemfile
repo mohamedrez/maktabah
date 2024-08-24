@@ -67,11 +67,11 @@ group :development, :test do
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "rubocop-rails", require: false
-  gem "rubocop-shopify", require: false
+  gem "rubocop-rails", ">= 2.18.0", require: false
+  gem "rubocop-shopify", ">= 2.13.0", require: false
   gem "dotenv-rails"
   gem "faker"
-  gem "standard"
+  gem "standard", ">= 1.25.0"
 end
 
 group :test do
@@ -85,7 +85,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "overcommit"
+  gem "overcommit", ">= 0.61.0"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
