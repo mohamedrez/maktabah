@@ -97,4 +97,4 @@ end
 
 gem "sidekiq", "~> 7.0"
 
-gem "noticed", "~> 1.6"
+gem "noticed", "~> 2.4"
