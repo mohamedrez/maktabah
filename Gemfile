@@ -71,7 +71,7 @@ group :development, :test do
   gem "rubocop-shopify", require: false
   gem "dotenv-rails"
   gem "faker"
-  gem "standard"
+  gem "standard", ">= 1.41.0"
 end
 
 group :test do
