@@ -71,7 +71,7 @@ group :development, :test do
   gem "rubocop-shopify", require: false
   gem "dotenv-rails"
   gem "faker"
-  gem "standard"
+  gem "standard", ">= 1.41.0"
 end
 
 group :test do
@@ -85,7 +85,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "overcommit"
+  gem "overcommit", ">= 0.64.1"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
