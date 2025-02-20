@@ -67,7 +67,7 @@ group :development, :test do
   gem "debug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "rubocop-rails", require: false
+  gem "rubocop-rails", ">= 2.30.0", require: false
   gem "rubocop-shopify", require: false
   gem "dotenv-rails"
   gem "faker"
