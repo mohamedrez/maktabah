@@ -21,7 +21,7 @@ gem "puma", "~> 6.3"
 gem "jsbundling-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", ">= 2.0.13"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -95,6 +95,6 @@ group :development do
   gem "annotate"
 end
 
-gem "sidekiq", "~> 7.0"
+gem "sidekiq", "~> 8.0", ">= 8.0.0"
 
 gem "noticed", "~> 1.6"
