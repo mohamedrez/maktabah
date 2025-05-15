@@ -50,7 +50,7 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 # gem "sassc-rails"
 
-gem "rack-protection"
+gem "rack-protection", ">= 4.0.0"
 gem "lograge"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
@@ -95,6 +95,6 @@ group :development do
   gem "annotate"
 end
 
-gem "sidekiq", "~> 7.0"
+gem "sidekiq", "~> 8.0", ">= 8.0.0"
 
 gem "noticed", "~> 1.6"
