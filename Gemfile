@@ -78,7 +78,7 @@ group :test do
   gem "capybara"
   gem "simplecov", require: false
   gem "rspec_junit_formatter"
-  gem "simplecov-cobertura", require: false
+  gem "simplecov-cobertura", ">= 3.0.0", require: false
   gem "codecov"
 end
 
